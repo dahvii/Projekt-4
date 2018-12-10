@@ -3,7 +3,9 @@ class PageContent extends Component {
   constructor(){
     super();
     this.startPage = new StartPage();
-    this.aboutPage = new AboutPage();
+    this.gamePage = new GamePage();
+    this.gameRulesPage = new GameRulesPage();
+    this.hiScorePage = new HiScorePage();
     this.missingPage = new MissingPage();
   }
   
