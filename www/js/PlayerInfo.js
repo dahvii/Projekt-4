@@ -3,7 +3,7 @@ class PlayerInfo extends Component {
     constructor(){
       super();
       this.addEvents({
-        'click #start-button': 'addPlayer'
+        'click #start-button': 'addPlayer',
         'click .btn-cancel': 'cancel'
       });
     }
