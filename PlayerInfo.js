@@ -29,7 +29,13 @@ class PlayerInfo extends Component {
       }
 
       if (success) {
-        location.href = '/game';
+        if (player1!==player2){
+        location.href = '/game';}
+        
+        else{
+        $('#invalid-input1').show();
+        $('#invalid-input2').show();
+      }
       }
     }
 
