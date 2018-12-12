@@ -4,6 +4,7 @@ class PlayerInfo extends Component {
       super();
       this.addEvents({
         'click #start-button': 'addPlayer'
+        'click .btn-cancel': 'cancel'
       });
     }
 
@@ -41,5 +42,9 @@ class PlayerInfo extends Component {
 
     validate(name){
       return name.length >= 2 && name.length <= 10;
+    }
+    
+     cancel(){
+      location.href = '/game';
     }
   } 
