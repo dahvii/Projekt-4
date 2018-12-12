@@ -1,19 +1,22 @@
 class Game {
-
-    constructor(){
-        board[
-            [0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0]
-        ];      
-    }//constructor
-
     currPlayer=1;
     round=1;
     winner = 0;
+
+    constructor(){
+        buildBoard();
+    }//constructor
+
+    buildBoard(){
+        this.board = [];
+        for(let row = 0; row < 6; row++){
+        let rowArr = [];
+        for(let col = 0; col < 7; col++){
+            rowArr.push(0);
+        }
+        this.board.push(rowArr);
+        }
+    }//buildBoard
 
     playerMove(click){
         //which player?
@@ -27,12 +30,11 @@ class Game {
         //is the slot empty? if so put currPlayer in slot
         let moveIsDone= false;
         let currRow, currCol; 
-
         //FIXA: om kolumnen är full, låt användaren klicka igen utan att det blir nästa runda
         for(let i= 5; i>=0 && !moveIsDone; i--){
             if( board[i][click] === 0){ // om platsen är tom
                     board[i][click] = currPlayer; //lägg in spelarens siffra
-                    currRow= i;
+                    currRow= i; 
                     currCol= click;
                     moveIsDone=true;
             }
