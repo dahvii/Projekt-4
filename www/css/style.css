@@ -60,3 +60,19 @@ body{
   font-weight: 900; 
   font-size: 3vh; 
 }
+
+.margin{
+  margin-top: 5vh;
+  padding-left: 0;
+}
+
+.start{
+  margin-left: 30vw;
+  margin-top: 10vh;
+}
+
+.invalid {
+  color: #A00;
+  font-size: 11px;
+  display: none;
+}
