@@ -1,6 +1,6 @@
 class PageContent extends Component {
 
-  constructor(){
+  constructor() {
     super();
     this.startPage = new StartPage();
     this.formPage = new FormPage();
@@ -8,6 +8,7 @@ class PageContent extends Component {
     this.gameRulesPage = new GameRulesPage();
     this.missingPage = new MissingPage();
     this.hiScorePage = new HiScorePage();
+    this.drawPage = new Draw();
   }
-  
+
 }
