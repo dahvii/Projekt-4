@@ -2,11 +2,15 @@ class HiScorePage extends Component {
 
   constructor() {
     super();
-    this.addRoute('/hiScore', 'HiScore');
+    this.addRoute('/hiScore', 'HiScore', this);
+  }
+
+  mount() {
     const highscore = localStorage.getItem('highscore');
     this.highscoreArray = highscore ? JSON.parse(highscore) : [];
-    // Sortera
+    // Sorting highscore depending on moves 
     this.highscoreArray = this.highscoreArray.slice().sort((a, b) => { return a.moves > b.moves ? 1 : -1; });
+    // Setting timeout so the html has been loaded 
     setTimeout(() => {
       this.fillHighscore();
     }, 100);
