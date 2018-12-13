@@ -9,7 +9,7 @@ class PageContent extends Component {
     this.missingPage = new MissingPage();
     this.hiScorePage = new HiScorePage();
     this.drawPage = new Draw();
-    this.winnerPage = new this.winnerPage();
+    this.winnerPage = new WinnerPage();
   }
 
 }
