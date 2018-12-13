@@ -51,7 +51,7 @@ class FormPage extends Component {
     }
     
      cancel(){
-      location.href = '/game';
+      location.href = '/';
     }
   } 
 
