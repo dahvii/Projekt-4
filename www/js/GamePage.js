@@ -4,6 +4,7 @@ class GamePage extends Component {
     this.player = 'red';
     this.eventListeners();
     this.addRoute('/game', 'Game');
+    this.game = new Game();
     //this.addRoute('/gamePage', 'GamePage');
     /* TESTNING  
     console.log(localStorage.getItem('player-1-name'));
@@ -34,20 +35,30 @@ class GamePage extends Component {
         // columns and rows
         let col = event.target.getAttribute('h-col');
         let row = event.target.getAttribute('h-row');
-
+        console.log('ok'+col);
+        
         // find the last cell in the row. For now jquery
         let lastEmptyCell = findLastEmptyCell(col);
+        console.log('ok');
+        
 
         // remove empty and add player color to div
         if (this.player == 'red') {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('red');
           this.player = 'yellow';
+          console.log('ok');
+          
         } else {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('yellow');
           this.player = 'red';
+          console.log('ok');
+          
         }
+        this.game.playerMove(col);
+        console.log('metodanrop ok'+col);
+        
       }
 
       //jQuery
