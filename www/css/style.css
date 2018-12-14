@@ -26,9 +26,16 @@ main {
 }
 .jumbotron {
   background-color: rgba(69, 243, 69, 0.61);
+.jumbotron{
+  background-color: rgba(69, 243, 69, 0.61); 
 }
 body {
   background-color: rgba(69, 243, 69, 0.61);
+.jumbotron1{
+  background-color: rgba(69, 243, 69, 0.61); 
+}
+body{
+    background-color: rgba(69, 243, 69, 0.61);
 }
 .overskrift {
   font-weight: bold;
@@ -43,6 +50,9 @@ body {
 .paragraff {
   font-weight: 500;
   font-size: 3vh;
+.paragraff{
+  font-weight: 700; 
+  font-size: 3vh; 
   font-family: 'Electrolize', sans-serif;
 }
 .btn-primary {
@@ -140,3 +150,30 @@ body {
 }
 
 /* --- end --- */
+
+@media (max-width: 720px) {
+  #secondjumbo{
+    display: none; 
+  }
+  .paragraff{
+    font-size: 2vh; 
+    font-family: 'Electrolize', sans-serif;
+    font-weight: 700; 
+  }
+  .text{
+    font-size: 3vh; 
+    font-family: 'Electrolize', sans-serif;
+    font-weight: 700
+  }
+  .overskrift{
+    font-size: 4vh; 
+    font-family: 'Electrolize', sans-serif;
+    font-weight: 700
+  }
+  .paragraf{
+    font-size: 3vh; 
+    font-family: 'Electrolize', sans-serif;
+    font-weight: 700; 
+  }
+
+}
