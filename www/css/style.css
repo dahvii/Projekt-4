@@ -26,16 +26,9 @@ main {
 }
 .jumbotron {
   background-color: rgba(69, 243, 69, 0.61);
-.jumbotron{
-  background-color: rgba(69, 243, 69, 0.61); 
 }
 body {
   background-color: rgba(69, 243, 69, 0.61);
-.jumbotron1{
-  background-color: rgba(69, 243, 69, 0.61); 
-}
-body{
-    background-color: rgba(69, 243, 69, 0.61);
 }
 .overskrift {
   font-weight: bold;
@@ -47,9 +40,6 @@ body{
   font-size: 3vh;
   font-family: 'Electrolize', sans-serif;
 }
-.paragraff {
-  font-weight: 500;
-  font-size: 3vh;
 .paragraff{
   font-weight: 700; 
   font-size: 3vh; 
