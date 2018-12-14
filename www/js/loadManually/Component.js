@@ -34,6 +34,10 @@ class Component {
       inDOM.remove();
       this.unmount && this.unmount();
       return '';
+    } else {
+      if (this.currentComponent && typeof this.currentComponent.mount === 'function') {
+        this.currentComponent.mount();
+      }
     }
     // Change the title if we match a route with a title
     if(this.route === Router.path && this.title){
@@ -74,9 +78,10 @@ class Component {
     }
   }
 
-  addRoute(route, title){
+  addRoute(route, title, component){
     this.route = route;
     this.title = title;
+    this.currentComponent = component;
     Router.registerRoute(route);
   }
 
