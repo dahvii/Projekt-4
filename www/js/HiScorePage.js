@@ -5,6 +5,7 @@ class HiScorePage extends Component {
     this.addRoute('/hiScore', 'HiScore', this);
   }
 
+  //mount --> Creating components in the dom 
   mount() {
     const highscore = localStorage.getItem('highscore');
     this.highscoreArray = highscore ? JSON.parse(highscore) : [];
