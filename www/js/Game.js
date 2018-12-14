@@ -6,8 +6,6 @@ class Game {
         this.winner = 0;
         this.board = [];
         this.buildBoard();
-        this.winner;
-
     } //constructor
 
     buildBoard() {
