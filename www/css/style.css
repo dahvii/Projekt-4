@@ -9,75 +9,134 @@ main {
 }
 .roww {
   display: flex;
-  margin-left: 11vw;  
+  margin-left: 11vw;
 }
 
 .column {
   flex: 33.33%;
   padding: 5px;
 }
-.container{
-    display: flex; 
+.container {
+  display: flex;
 }
-.fourInARow{
+.fourInARow {
   width: 80%;
   height: 55vh;
   margin-right: 15vw;
 }
-.jumbotron{
-    background-color: rgba(69, 243, 69, 0.61); 
+.jumbotron {
+  background-color: rgba(69, 243, 69, 0.61);
 }
-body{
-    background-color: rgba(69, 243, 69, 0.61);
+body {
+  background-color: rgba(69, 243, 69, 0.61);
 }
-.overskrift{
-    font-weight: bold;
-    font-size: 6vh;  
-    font-family: 'Electrolize', sans-serif;
-}
-.paragraf{
-    font-weight: 800; 
-    font-size: 3vh; 
-    font-family: 'Electrolize', sans-serif;
-}
-.paragraff{
-  font-weight: 500; 
-  font-size: 3vh; 
+.overskrift {
+  font-weight: bold;
+  font-size: 6vh;
   font-family: 'Electrolize', sans-serif;
 }
-.btn-primary{
+.paragraf {
+  font-weight: 800;
+  font-size: 3vh;
   font-family: 'Electrolize', sans-serif;
-  background-color: darkgreen; 
 }
-.text{
-    margin-left: 10vw; 
-    font-family: 'Electrolize', sans-serif;
-    font-weight: 900; 
-    font-size: 5vh; 
-}
-.color{
+.paragraff {
+  font-weight: 500;
+  font-size: 3vh;
   font-family: 'Electrolize', sans-serif;
-  font-weight: 900; 
-  font-size: 3vh; 
+}
+.btn-primary {
+  font-family: 'Electrolize', sans-serif;
+  background-color: darkgreen;
+}
+.text {
+  margin-left: 10vw;
+  font-family: 'Electrolize', sans-serif;
+  font-weight: 900;
+  font-size: 5vh;
+}
+.color {
+  font-family: 'Electrolize', sans-serif;
+  font-weight: 900;
+  font-size: 3vh;
 }
 
-.margin{
+.margin {
   margin-top: 5vh;
   padding-left: 0;
 }
 
-.start{
+.start {
   margin-left: 30vw;
   margin-top: 10vh;
 }
 
 .invalid {
-  color: #A00;
+  color: #a00;
   font-size: 11px;
   display: none;
 }
 
-.table{
-  background-color: black; 
-  color: rgb(0, 146, 0); 
+.table {
+  background-color: black;
+  color: rgb(0, 146, 0);
 }
+
+/* --- GamePage --- */
+
+#gamepage {
+  /* flex: 1; */
+  background-color: rgba(30, 100, 240, 1);
+  display: inline-block;
+  border: 1vw solid rgba(30, 100, 240, 1);
+  border-radius: 5%;
+  box-shadow: 7px 7px 40px grey;
+  /* position: relative; */
+}
+
+.col {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  margin: 4px;
+  box-shadow: inset 45px 45px 25px -40px rgba(0, 0, 0, 0.18);
+  position: relative;
+}
+
+.nextred {
+  background-color: rgb(255, 170, 170);
+}
+
+.nextyellow {
+  background-color: rgb(255, 255, 170);
+}
+
+.col.red {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 0, 0),
+    rgb(255, 160, 0),
+    red
+  );
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.col.yellow {
+  background-image: linear-gradient(
+    to bottom right,
+    orange,
+    rgb(255, 255, 140),
+    orange
+  );
+
+  /* box-shadow: inset 45px 45px 25px -40px rgba(0, 0, 0, 0.18); */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.col.empty {
+  cursor: pointer;
+}
+
+/* --- end --- */
