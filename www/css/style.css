@@ -95,8 +95,8 @@ body {
 }
 
 .col {
-  width: 70px;
-  height: 70px;
+  width: 160px;
+  min-height: 75px;
   display: inline-block;
   background-color: rgb(255, 255, 255);
   border-radius: 50%;
