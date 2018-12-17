@@ -123,8 +123,8 @@ class Game{
         }else{
             this.winner = localStorage.getItem('player-2-name')
         }
-               
-        localStorage.setItem('winner', this.winner);
-        location.href = '/winner';
+        $('#modalWinner').modal('show')     
+        //localStorage.setItem('winner', this.winner);
+        //location.href = '/winner';
     }//setWinner
 } //class

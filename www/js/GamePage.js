@@ -5,7 +5,8 @@ class GamePage extends Component {
     this.addRoute('/game', 'Game');
     this.game = new Game();
     this.eventListeners();
-
+    this.addEvents({
+      'click .btn-outline-success': 'highScore',});
     //this.addRoute('/gamePage', 'GamePage');
     /* TESTNING  
     console.log(localStorage.getItem('player-1-name'));
@@ -29,7 +30,9 @@ class GamePage extends Component {
   // Animation
   // Mouse over animation/shadow (don't know why it doesn't work)
   // remove white showing next to cell/token
-
+  highScore(){
+    location.href='/hiScore'
+  }
   eventListeners() {
     let that = this;
     let col;
