@@ -11,5 +11,4 @@ class PageContent extends Component {
     this.drawPage = new Draw();
     this.winnerPage = new WinnerPage();
   }
-
 }
