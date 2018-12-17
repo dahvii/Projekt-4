@@ -5,7 +5,9 @@ class Game{
         this.round = 1;
         this.winner = 0;
         this.board = [];
-        this.buildBoard();    
+        this.buildBoard();
+        this.player1round=0
+        this.player2round=0;    
     } //constructor
 
     buildBoard() {
@@ -24,8 +26,10 @@ class Game{
         //which player?
         if (this.round % 2 === 0) {
             this.currPlayer = 2;
+            this.player2round++; 
         } else {
             this.currPlayer = 1;
+            this.player1round++;
         }
         
 

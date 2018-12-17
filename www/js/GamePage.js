@@ -47,18 +47,15 @@ class GamePage extends Component {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('red');
           this.player = 'yellow';
-          console.log('ok');
           
         } else {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('yellow');
           this.player = 'red';
-          console.log('ok');
           
         }
         
       that.game.playerMove(col);
-      console.log('metodanrop gjort med col-nr'+col);
       }//if empty
       
       //jQuery
