@@ -5,6 +5,9 @@ class FormPage extends Component {
     this.addRoute('/gameForm', 'Game Form');
     this.addEvents({
       'click #start-button': 'addPlayer',
+      'keyup #name-input2': 'pressEnter',
+      'click #start-button': 'addPlayer',
+      'keyup #name-input1': 'pressEnter'
     });
   }
 
@@ -49,12 +52,11 @@ class FormPage extends Component {
   validate(name) {
     return name.length >= 2 && name.length <= 10;
   }
+
+  pressEnter(e) {
+    if (e.which === 13) {
+      this.addPlayer();
+    }
+  }
 }
-
-
-
-
-
-
-
 

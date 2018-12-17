@@ -3,6 +3,24 @@ body > div {
   min-height: 100vh;
   flex-direction: column;
 }
+.formHtml{
+  background-color: rgb(180, 180, 180, 0.9); 
+  margin-left: 0vw; 
+  display:block
+}
+h1{
+  font-family: 'Electrolize', sans-serif;
+  font-weight: 800; 
+  text-align: center; 
+}
+h2{
+  font-family: 'Electrolize', sans-serif;
+  font-weight: bold; 
+  text-align: center; 
+  color: white; 
+  font-size: 4em; 
+  text-shadow: 4px 4px black;
+}
 
 main {
   flex: 1;
@@ -17,18 +35,18 @@ main {
   padding: 5px;
 }
 .container {
-  display: flex;
 }
 .fourInARow {
   width: 80%;
   height: 55vh;
   margin-right: 15vw;
 }
-.jumbotron {
-  background-color: rgba(69, 243, 69, 0.61);
+.four{
+  float: right;
 }
 body {
-  background-color: rgba(69, 243, 69, 0.61);
+  background-image: url("https://d2ujflorbtfzji.cloudfront.net/key-image/9295d195-5b32-4f5e-afc7-c970af28bb15.jpg");
+  background-size: cover; 
 }
 .overskrift {
   font-weight: bold;
@@ -47,7 +65,7 @@ body {
 }
 .btn-primary {
   font-family: 'Electrolize', sans-serif;
-  background-color: darkgreen;
+  background-color: rgba(0, 39, 148, 0.678);
 }
 .text {
   margin-left: 10vw;
@@ -58,7 +76,7 @@ body {
 .color {
   font-family: 'Electrolize', sans-serif;
   font-weight: 900;
-  font-size: 3vh;
+  font-size: 4vh;
 }
 
 .margin {
@@ -174,16 +192,23 @@ body {
   .text{
     font-size: 3vh; 
     font-family: 'Electrolize', sans-serif;
-    font-weight: 700
+    font-weight: 700;
+    padding-left: 7vw; 
+
   }
   .overskrift{
     font-size: 4vh; 
     font-family: 'Electrolize', sans-serif;
-    font-weight: 700
+    font-weight: 700;
   }
   .paragraf{
     font-size: 3vh; 
     font-family: 'Electrolize', sans-serif;
     font-weight: 700; 
   }
+  .roww{
+    display: flex; 
+    flex-direction: column;
+    padding-left: 13vw;  
   }
+}

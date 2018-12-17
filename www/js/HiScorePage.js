@@ -17,15 +17,18 @@ class HiScorePage extends Component {
     }, 100);
   }
 
-  fillHighscore() { 
-    this.highscoreArray.forEach((highscore, i) => {
-      const element = 
-      `<tr>
-        <td>${i+1}</td>
-        <td>${highscore.name}</td>
-        <td>${highscore.moves}</td>
-    </tr>`
-    $('#highScoreList').append(element)
-    })
+  fillHighscore() {
+    // convert the raw array of JSON-like objects in highScoreArray
+    // to an array of HighScoreRow objects
+    // (because HighScoreRow objects are Componeents - you can just 
+    // include an array of them in the html template and all of them will render)
+    this.highScores = [];
+    let no = 1;
+    for(let highScore of this.highscoreArray){
+      this.highScores.push(new HighScoreRow(no, highScore.name, highScore.moves));
+      no++;
+    }
+    this.render();
   }
+
 }
