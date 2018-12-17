@@ -4,7 +4,7 @@ body > div {
   flex-direction: column;
 }
 .formHtml{
-  background-color: rgb(180, 180, 180, 0.9); 
+  background-color: rgba(197, 196, 196, 0); 
   margin-left: 0vw; 
   display:block
 }
