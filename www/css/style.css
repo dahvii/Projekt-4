@@ -215,6 +215,10 @@ main {
   margin-bottom: 2vh;
 }
 
+#modal-body{
+  padding:16px;
+}
+
 /* --- end --- */
 
 @media (max-width: 720px) {

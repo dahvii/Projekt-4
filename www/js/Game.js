@@ -120,8 +120,11 @@ class Game{
     setWinner(winner){
         if(winner === 1){
             this.winner = localStorage.getItem('player-1-name')  
+            document.getElementById("modal-body").innerHTML = localStorage.getItem('player-1-name')+' is the winner';
         }else{
             this.winner = localStorage.getItem('player-2-name')
+            document.getElementById("modal-body").innerHTML = localStorage.getItem('player-2-name')+' is the winner';
+
         }
         $('#modalWinner').modal('show')     
         //localStorage.setItem('winner', this.winner);
