@@ -5,6 +5,7 @@ class GamePage extends Component {
     this.addRoute('/game', 'Game');
     this.game = new Game();
     this.eventListeners();
+ 
     //this.addRoute('/gamePage', 'GamePage');
     /* TESTNING  
     console.log(localStorage.getItem('player-1-name'));
