@@ -5,7 +5,7 @@ class GamePage extends Component {
     this.addRoute('/game', 'Game');
     this.game = new Game();
     this.eventListeners();
- 
+
     //this.addRoute('/gamePage', 'GamePage');
     /* TESTNING  
     console.log(localStorage.getItem('player-1-name'));
@@ -32,35 +32,34 @@ class GamePage extends Component {
 
   eventListeners() {
     let that = this;
-    let col ;
-    document.addEventListener('click', function(event) {
+    let col;
+    document.addEventListener('click', function (event) {
       if (event.target.classList.contains('empty')) {
         // columns and rows
-        col = event.target.getAttribute('h-col');
+        col = event.target.getAttribute('h-coll');
         let row = event.target.getAttribute('h-row');
-        
+
         // find the last cell in the row. For now jquery
-        let lastEmptyCell = findLastEmptyCell(col);        
+        let lastEmptyCell = findLastEmptyCell(col);
 
         // remove empty and add player color to div
         if (this.player == 'red') {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('red');
           this.player = 'yellow';
-          
         } else {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('yellow');
           this.player = 'red';
-          
+
         }
-        
-      that.game.playerMove(col);
+
+        that.game.playerMove(col);
       }//if empty
-      
+
       //jQuery
       function findLastEmptyCell(col) {
-        const cells = $(`.col[h-col='${col}']`);
+        const cells = $(`.coll[h-coll='${col}']`);
         for (let i = cells.length - 1; i >= 0; i--) {
           const $cell = $(cells[i]);
           if ($cell.hasClass('empty')) {
@@ -70,7 +69,7 @@ class GamePage extends Component {
         return null;
       }
     });//addevent click
-    
+
   }//metoden eventlistener
 
 }
