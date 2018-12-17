@@ -47,15 +47,22 @@ class GamePage extends Component {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('red');
           this.player = 'yellow';
+          document.getElementById("turn").innerHTML = localStorage.getItem('player-1-name')+"'s turn!";
+
+          
           console.log('ok');
           
         } else {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('yellow');
           this.player = 'red';
+          document.getElementById("turn").innerHTML = localStorage.getItem('player-2-name')+"'s turn!";
+
+         
           console.log('ok');
           
         }
+
         this.game.playerMove(col);
         console.log('metodanrop ok'+col);
         
