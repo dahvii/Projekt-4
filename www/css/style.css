@@ -3,6 +3,20 @@ body > div {
   min-height: 100vh;
   flex-direction: column;
 }
+#rules{
+  font-family: 'Electrolize', sans-serif;
+  font-weight: bold; 
+  text-align: center; 
+  color: white; 
+  font-size: 3em; 
+  text-shadow: 2px 1px black;
+}
+a{
+  color: black; 
+  font-family: 'Electrolize', sans-serif;
+  font-weight: 500; 
+  
+}
 .formHtml{
   background-color: rgba(197, 196, 196, 0); 
   margin-left: 0vw; 
@@ -12,6 +26,9 @@ h1{
   font-family: 'Electrolize', sans-serif;
   font-weight: 800; 
   text-align: center; 
+  color: white; 
+  font-size: 3em; 
+  text-shadow: 3px 2px black;
 }
 h2{
   font-family: 'Electrolize', sans-serif;
