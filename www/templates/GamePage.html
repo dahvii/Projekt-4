@@ -1,74 +1,240 @@
-<div>  
+<div>
   <div class="name">
     <div class="players">
       ${this.player == 'yellow' ? localStorage.getItem('player-1-name') : localStorage.getItem('player-2-name')}
     </div>
     <div id="turn">
-        ${this.player == 'red' ? localStorage.getItem('player-1-name') : localStorage.getItem('player-2-name')}'s turn!
-      </div>
-      <div class="players">
-          ${this.player == 'red' ? localStorage.getItem('player-1-name') : localStorage.getItem('player-2-name')}
-        </div>
-  
-  
-  </div>
-<div>
-  <div class="col-7 offset-3" id="gamepage">
-    <div class="row">
-      <div class="col empty" h-col="0" h-row="0"></div>
-      <div class="col empty" h-col="1" h-row="0"></div>
-      <div class="col empty" h-col="2" h-row="0"></div>
-      <div class="col empty" h-col="3" h-row="0"></div>
-      <div class="col empty" h-col="4" h-row="0"></div>
-      <div class="col empty" h-col="5" h-row="0"></div>
-      <div class="col empty" h-col="6" h-row="0"></div>
+      ${this.player == 'red' ? localStorage.getItem('player-1-name') : localStorage.getItem('player-2-name')}'s turn!
     </div>
-    <div class="row">
-      <div class="col empty" h-col="0" h-row="1"></div>
-      <div class="col empty" h-col="1" h-row="1"></div>
-      <div class="col empty" h-col="2" h-row="1"></div>
-      <div class="col empty" h-col="3" h-row="1"></div>
-      <div class="col empty" h-col="4" h-row="1"></div>
-      <div class="col empty" h-col="5" h-row="1"></div>
-      <div class="col empty" h-col="6" h-row="1"></div>
+    <div class="players">
+      ${this.player == 'red' ? localStorage.getItem('player-1-name') : localStorage.getItem('player-2-name')}
     </div>
-    <div class="row">
-      <div class="col empty" h-col="0" h-row="2"></div>
-      <div class="col empty" h-col="1" h-row="2"></div>
-      <div class="col empty" h-col="2" h-row="2"></div>
-      <div class="col empty" h-col="3" h-row="2"></div>
-      <div class="col empty" h-col="4" h-row="2"></div>
-      <div class="col empty" h-col="5" h-row="2"></div>
-      <div class="col empty" h-col="6" h-row="2"></div>
-    </div>
-    <div class="row">
-      <div class="col empty" h-col="0" h-row="3"></div>
-      <div class="col empty" h-col="1" h-row="3"></div>
-      <div class="col empty" h-col="2" h-row="3"></div>
-      <div class="col empty" h-col="3" h-row="3"></div>
-      <div class="col empty" h-col="4" h-row="3"></div>
-      <div class="col empty" h-col="5" h-row="3"></div>
-      <div class="col empty" h-col="6" h-row="3"></div>
-    </div>
-    <div class="row">
-      <div class="col empty" h-col="0" h-row="4"></div>
-      <div class="col empty" h-col="1" h-row="4"></div>
-      <div class="col empty" h-col="2" h-row="4"></div>
-      <div class="col empty" h-col="3" h-row="4"></div>
-      <div class="col empty" h-col="4" h-row="4"></div>
-      <div class="col empty" h-col="5" h-row="4"></div>
-      <div class="col empty" h-col="6" h-row="4"></div>
-    </div>
-    <div class="row">
-      <div class="col empty" h-col="0" h-row="5"></div>
-      <div class="col empty" h-col="1" h-row="5"></div>
-      <div class="col empty" h-col="2" h-row="5"></div>
-      <div class="col empty" h-col="3" h-row="5"></div>
-      <div class="col empty" h-col="4" h-row="5"></div>
-      <div class="col empty" h-col="5" h-row="5"></div>
-      <div class="col empty" h-col="6" h-row="5"></div>
-    </div>
-  </div>
-</div>
-</div>
 
+
+  </div>
+  <div>
+    <div class="col-7 container-fluid" id="gamepage">
+      <div class="row">
+        <div class="coll" h-coll="0" h-row="0">
+          <div>
+            <div class="coll empty" h-coll="0" h-row="0"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="1" h-row="0">
+          <div>
+            <div class="coll empty" h-coll="1" h-row="0"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="2" h-row="0">
+          <div>
+            <div class="coll empty" h-coll="2" h-row="0"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="3" h-row="0">
+          <div>
+            <div class="coll empty" h-coll="3" h-row="0"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="4" h-row="0">
+          <div>
+            <div class="coll empty" h-coll="4" h-row="0"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="5" h-row="0">
+          <div>
+            <div class="coll empty" h-coll="5" h-row="0"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="6" h-row="0">
+          <div>
+            <div class="coll empty" h-coll="6" h-row="0"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="coll" h-coll="0" h-row="1">
+          <div>
+            <div class="coll empty" h-coll="0" h-row="1"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="1" h-row="1">
+          <div>
+            <div class="coll empty" h-coll="1" h-row="1"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="2" h-row="1">
+          <div>
+            <div class="coll empty" h-coll="2" h-row="1"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="3" h-row="1">
+          <div>
+            <div class="coll empty" h-coll="3" h-row="1"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="4" h-row="1">
+          <div>
+            <div class="coll empty" h-coll="4" h-row="1"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="5" h-row="1">
+          <div>
+            <div class="coll empty" h-coll="5" h-row="1"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="6" h-row="1">
+          <div>
+            <div class="coll empty" h-coll="6" h-row="1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="coll" h-coll="0" h-row="2">
+          <div>
+            <div class="coll empty" h-coll="0" h-row="2"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="1" h-row="2">
+          <div>
+            <div class="coll empty" h-coll="1" h-row="2"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="2" h-row="2">
+          <div>
+            <div class="coll empty" h-coll="2" h-row="2"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="3" h-row="2">
+          <div>
+            <div class="coll empty" h-coll="3" h-row="2"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="4" h-row="2">
+          <div>
+            <div class="coll empty" h-coll="4" h-row="2"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="5" h-row="2">
+          <div>
+            <div class="coll empty" h-coll="5" h-row="2"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="6" h-row="2">
+          <div>
+            <div class="coll empty" h-coll="6" h-row="2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="coll" h-coll="0" h-row="3">
+          <div>
+            <div class="coll empty" h-coll="0" h-row="3"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="1" h-row="3">
+          <div>
+            <div class="coll empty" h-coll="1" h-row="3"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="2" h-row="3">
+          <div>
+            <div class="coll empty" h-coll="2" h-row="3"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="3" h-row="3">
+          <div>
+            <div class="coll empty" h-coll="3" h-row="3"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="4" h-row="3">
+          <div>
+            <div class="coll empty" h-coll="4" h-row="3"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="5" h-row="3">
+          <div>
+            <div class="coll empty" h-coll="5" h-row="3"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="6" h-row="3">
+          <div>
+            <div class="coll empty" h-coll="6" h-row="3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="coll" h-coll="0" h-row="4">
+          <div>
+            <div class="coll empty" h-coll="0" h-row="4"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="1" h-row="4">
+          <div>
+            <div class="coll empty" h-coll="1" h-row="4"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="2" h-row="4">
+          <div>
+            <div class="coll empty" h-coll="2" h-row="4"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="3" h-row="4">
+          <div>
+            <div class="coll empty" h-coll="3" h-row="4"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="4" h-row="4">
+          <div>
+            <div class="coll empty" h-coll="4" h-row="4"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="5" h-row="4">
+          <div>
+            <div class="coll empty" h-coll="5" h-row="4"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="6" h-row="4">
+          <div>
+            <div class="coll empty" h-coll="6" h-row="4"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="coll" h-coll="0" h-row="5">
+          <div>
+            <div class="coll empty" h-coll="0" h-row="5"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="1" h-row="5">
+          <div>
+            <div class="coll empty" h-coll="1" h-row="5"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="2" h-row="5">
+          <div>
+            <div class="coll empty" h-coll="2" h-row="5"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="3" h-row="5">
+          <div>
+            <div class="coll empty" h-coll="3" h-row="5"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="4" h-row="5">
+          <div>
+            <div class="coll empty" h-coll="4" h-row="5"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="5" h-row="5">
+          <div>
+            <div class="coll empty" h-coll="5" h-row="5"></div>
+          </div>
+        </div>
+        <div class="coll" h-coll="6" h-row="5">
+          <div>
+            <div class="coll empty" h-coll="6" h-row=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>>>>>>>> Stashed changes
