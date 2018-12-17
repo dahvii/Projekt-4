@@ -1,12 +1,11 @@
-class Game {
+class Game{
 
     constructor() {
         this.currPlayer = 1;
         this.round = 1;
         this.winner = 0;
         this.board = [];
-        this.buildBoard();
-    
+        this.buildBoard();    
     } //constructor
 
     buildBoard() {
@@ -17,26 +16,28 @@ class Game {
                 rowArr.push(0);
             }
             this.board.push(rowArr);
-        }
+        }  
     } //buildBoard
 
     playerMove(click) {
+        click = parseInt(click);
         //which player?
         if (this.round % 2 === 0) {
             this.currPlayer = 2;
         } else {
             this.currPlayer = 1;
         }
+        
 
         //is the slot empty? if so put currPlayer in slot
         let moveIsDone = false;
         let currRow, currCol;
-        //FIXA: om kolumnen är full, låt användaren klicka igen utan att det blir nästa runda
+
         for (let i = 5; i >= 0 && !moveIsDone; i--) {
             if (this.board[i][click] === 0) { // om platsen är tom
                 this.board[i][click] = this.currPlayer; //lägg in spelarens siffra
-                let currRow = i;
-                let currCol = click;
+                currRow = i;
+                currCol = click;
                 moveIsDone = true;
             }
         }
@@ -55,9 +56,9 @@ class Game {
         for (let toRight = col + 1; toRight < 7 && this.board[row][toRight] === this.currPlayer && winCounter <= 3; toRight++) {
             winCounter++;
         }
-
+    
         //check to left
-        for (let toLeft = col - 1; toLeft > 0 && this.board[row][toLeft] === this.currPlayer && winCounter <= 3; toLeft--) {
+        for (let toLeft = col - 1; toLeft >= 0 && this.board[row][toLeft] === this.currPlayer && winCounter <= 3; toLeft--) {
             winCounter++;
         }
 
@@ -103,7 +104,7 @@ class Game {
         let winCounter = 0;
 
         //check to down to left
-        for (let down = row + 1, left = col - 1; down < 6 && left > 0 && this.board[down][left] === this.currPlayer && winCounter <= 3; left--, down++) {
+        for (let down = row + 1, left = col - 1; down < 6 && left >= 0 && this.board[down][left] === this.currPlayer && winCounter <= 3; left--, down++) {
             winCounter++;
         }
 
@@ -121,5 +122,5 @@ class Game {
                
         localStorage.setItem('winner', this.winner);
         location.href = '/winner';
-    }
+    }//setWinner
 } //class
