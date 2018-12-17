@@ -139,6 +139,27 @@ body {
   cursor: pointer;
 }
 
+.players{
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 10px 10px;
+  width: 12vw;
+  text-align: center;
+  color: white;
+  font-size: 3vw;
+  text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.7);
+}
+#turn{
+  font-size: 4vw;
+
+}
+
+.name{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2vh;
+}
+
 /* --- end --- */
 
 @media (max-width: 720px) {
