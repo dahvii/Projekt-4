@@ -126,9 +126,9 @@ main {
 
 
 #gamepage {
-  border: 10px solid rgba(30, 100, 240, 1);
+  border: 25px solid rgba(30, 100, 240, 1);
   border-radius: 5%;
-  box-shadow: 7px 5px 20px grey;
+  box-shadow: 10px 7px 15px grey;
   
 }
 
@@ -157,7 +157,7 @@ main {
     rgb(255, 255, 255),
     rgb(255, 255, 255)
   );
-  box-shadow: inset 45px 45px 25px -40px rgba(0, 0, 0, 0.18);
+  box-shadow: inset 45px 45px 10px -50px rgba(0, 0, 0, 0.18);
 }
 
 .nextred {
@@ -172,10 +172,10 @@ main {
   background-image: linear-gradient(
     to bottom right,
     rgb(255, 0, 0),
-    rgb(255, 160, 0),
+    rgb(255, 136, 0),
     red
   );
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
 }
 
 .coll.yellow {
@@ -184,10 +184,9 @@ main {
     orange,
     rgb(255, 255, 140),
     orange
+    
   );
-
-  /* box-shadow: inset 45px 45px 25px -40px rgba(0, 0, 0, 0.18); */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
 }
 
 .coll.empty {
