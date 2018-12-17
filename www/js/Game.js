@@ -48,7 +48,8 @@ class Game{
 
         this.checkSide(currRow, currCol);
         if (this.round === 42) { //om brädet är fullt
-            location.href = '/draw';
+            $('#modalDraw').modal('show') 
+            //location.href = '/draw';
         }
         this.round++;
         } //playerMove
