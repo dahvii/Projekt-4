@@ -6,32 +6,17 @@ class GamePage extends Component {
     this.game = new Game();
     this.eventListeners();
     this.addEvents({
-      'click .btn-outline-success': 'highScore',});
-    //this.addRoute('/gamePage', 'GamePage');
-    /* TESTNING  
-    console.log(localStorage.getItem('player-1-name'));
-    console.log(localStorage.getItem('player-2-name'));
-    this.addHighScore(localStorage.getItem('player-1-name'), 30); */
+      'click .btn-outline-success': 'highScore',
+    });
   }
-  /* 
-  addHighScore(winnerName, moves) {
-    //Modtager highscore fra spillet som string
-    const highscore = localStorage.getItem('highscore');
-    //Findes noget i highscore parser vi til at være en array, og ellers får vi en tom array
-    const highscoreArray = highscore ? JSON.parse(highscore) : [];
-    //Tilføjer object til highscoreArray
-    highscoreArray.push({ name: winnerName, moves: moves });
-    // Local storage kan kun tage string
-    localStorage.setItem('highscore', JSON.stringify(highscoreArray));
-  } */
 
   // TODO: Generate HTML with array
   // Make it more responsive (mobile looka too small. Should be easy)
   // Animation
   // Mouse over animation/shadow (don't know why it doesn't work)
   // remove white showing next to cell/token
-  highScore(){
-    location.href='/hiScore'
+  highScore() {
+    location.href = '/hiScore'
   }
   eventListeners() {
     let that = this;
@@ -50,13 +35,13 @@ class GamePage extends Component {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('red');
           this.player = 'yellow';
-          document.getElementById("turn").innerHTML = localStorage.getItem('player-1-name')+ "'s turn!";
+          document.getElementById("turn").innerHTML = localStorage.getItem('player-1-name') + "'s turn!";
 
         } else {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('yellow');
           this.player = 'red';
-          document.getElementById("turn").innerHTML = localStorage.getItem('player-2-name')+ "'s turn!";
+          document.getElementById("turn").innerHTML = localStorage.getItem('player-2-name') + "'s turn!";
 
 
         }

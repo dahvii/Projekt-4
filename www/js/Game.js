@@ -121,13 +121,23 @@ class Game{
         if(winner === 1){
             this.winner = localStorage.getItem('player-1-name')  
             document.getElementById("modal-body").innerHTML = localStorage.getItem('player-1-name')+' is the winner';
+        this.addHighScore(this.player1round);
         }else{
             this.winner = localStorage.getItem('player-2-name')
             document.getElementById("modal-body").innerHTML = localStorage.getItem('player-2-name')+' is the winner';
-
+        this.addHighScore(this.player2round);
         }
         $('#modalWinner').modal('show')     
         //localStorage.setItem('winner', this.winner);
         //location.href = '/winner';
     }//setWinner
+    async addHighScore(moves) {
+        //Modtager highscore fra spillet som string
+        let highscore = await JSON._load('highscoreArray.json');
+        //Findes noget i highscore parser vi til at være en array, og ellers får vi en tom array
+        const highscoreArray = highscore ? highscore : [];
+        //Tilføjer object til highscoreArray
+        highscoreArray.push({ name: this.winner, moves: moves });
+        await JSON._save('highscoreArray.json', highscoreArray);
+      }
 } //class
