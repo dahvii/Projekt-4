@@ -97,25 +97,51 @@ body {
 
 /* --- GamePage --- */
 
-#gamepage {
-  /* flex: 1; */
-  background-color: rgba(30, 100, 240, 1);
-  display: inline-block;
-  border: 1vw solid rgba(30, 100, 240, 1);
-  border-radius: 5%;
-  box-shadow: 7px 7px 40px grey;
-  /* position: relative; */
+
+body > div {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-.col {
-  width: 100px;
-  min-height: 55px;
-  display: inline-block;
-  background-color: rgb(255, 255, 255);
+main {
+  flex: 1;
+}
+
+
+#gamepage {
+  border: 10px solid rgba(30, 100, 240, 1);
+  border-radius: 5%;
+  box-shadow: 7px 5px 20px grey;
+  
+}
+
+
+.coll {
+ width: 14.28%;
+}
+
+.coll > div {
+  padding-top: 100%;
+  position:relative;
+  background-color: rgba(30, 100, 240, 1);
+  
+}
+
+.coll > div > div {
+  position:absolute;
+  top:10%;
+  left:10%;
+  width: 80%;
+  height: 80%;
   border-radius: 50%;
-  margin: 4px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255),
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
+  );
   box-shadow: inset 45px 45px 25px -40px rgba(0, 0, 0, 0.18);
-  position: relative;
 }
 
 .nextred {
@@ -126,7 +152,7 @@ body {
   background-color: rgb(255, 255, 170);
 }
 
-.col.red {
+.coll.red {
   background-image: linear-gradient(
     to bottom right,
     rgb(255, 0, 0),
@@ -136,7 +162,7 @@ body {
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
-.col.yellow {
+.coll.yellow {
   background-image: linear-gradient(
     to bottom right,
     orange,
@@ -148,7 +174,7 @@ body {
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
-.col.empty {
+.coll.empty {
   cursor: pointer;
 }
 
