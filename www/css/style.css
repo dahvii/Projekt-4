@@ -34,18 +34,13 @@ main {
   flex: 33.33%;
   padding: 5px;
 }
-.container {
-}
 .fourInARow {
   width: 80%;
   height: 55vh;
   margin-right: 15vw;
 }
-.four{
-  float: right;
-}
 body {
-  background-image: url("https://d2ujflorbtfzji.cloudfront.net/key-image/9295d195-5b32-4f5e-afc7-c970af28bb15.jpg");
+  background-image: url("http://ceilfire.s3-eu-west-1.amazonaws.com/upload_a617670012d85c15e90c32cf4907a5ad");
   background-size: cover; 
 }
 .overskrift {
