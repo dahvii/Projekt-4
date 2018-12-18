@@ -53,9 +53,7 @@ class GamePage extends Component {
         
         // remove empty and add player color to div
         that.placeColor(col,row);
-        that.game.playerMove(col, row); 
-        console.log('winner'+that.game.winner);
-        
+        that.game.playerMove(col, row);         
         if (that.game.winner === 0){
           that.bot();
         }
@@ -108,24 +106,34 @@ class GamePage extends Component {
         if (localStorage.getItem('typ-1')=='bot' || localStorage.getItem('typ-2')=='bot' ){
           let millisecondsToWait = 500;
           let that=this;
+          let emptyCell, rand;
           setTimeout(function() {
-            let rand = (Math.floor(Math.random() * 7));
-            console.log('rand dvs column'+rand);
+            while(emptyCell === undefined && that.game.winner === 0 && that.game.round <= 42){
+              rand = (Math.floor(Math.random() * 7));            
+              emptyCell=that.game.findEmptyCell(rand);
+            }            
+            if(emptyCell !== undefined && that.game.winner === 0 ){
+              that.game.playerMove(rand, emptyCell);
+            }
+            if(emptyCell !== undefined && that.game.winner === 0 ){
+              that.placeColor(rand, emptyCell);
+            }
             
-            let emptyCell=that.game.findEmptyCell(rand);
-            console.log('emptyCell dvs rad'+ emptyCell);
-
-            that.game.playerMove(rand, emptyCell);
-            that.placeColor(rand, emptyCell);
           }, millisecondsToWait);
         }
    }
-   //kollar om det första draget görs av en bot
+   
    firstMove(){
+     //kollar om det första draget görs av en bot
     if (localStorage.getItem('typ-1')=='bot'){
       this.bot();
     }
-
+    //kollar om båda är botar
+    if (localStorage.getItem('typ-1')=='bot' && localStorage.getItem('typ-2')=='bot' ){
+      for(let i=0; this.game.winner === 0 && i<= 42; i++){        
+        this.bot();                
+      }
+    }
    }
         
       

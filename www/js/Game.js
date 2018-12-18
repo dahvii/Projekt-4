@@ -21,19 +21,19 @@ class Game{
         }  
     } //buildBoard
 
-    findEmptyCell(click){
-        click = parseInt(click);
+    findEmptyCell(col){
+        col = parseInt(col);
         //is the slot empty? 
         let moveIsDone = false;
-        let currRow;
+        let row;
 
         for (let i = 5; i >= 0 && !moveIsDone; i--) {
-            if (this.board[i][click] === 0) { // om platsen är tom
-                currRow = i;
+            if (this.board[i][col] === 0) { // om platsen är tom
+                row = i;
                 moveIsDone = true;
             }
         }
-        return currRow;
+        return row;
     }//findEmptyCell
 
     playerMove(col, row) {
@@ -53,13 +53,12 @@ class Game{
             $('#modalDraw').modal('show') 
             Global.activeGame=false;
         }
-        this.round++;
-        console.log(this.board);
+        this.round++;        
         } //playerMove
         
         
 
-        checkSide(row, col) {
+    checkSide(row, col) {
         let winCounter = 0;
 
         //check to right
@@ -135,7 +134,8 @@ class Game{
             document.getElementById("modal-body").innerHTML = localStorage.getItem('player-2-name')+' is the winner';
             this.addHighScore(this.player2round);
         }
-        $('#modalWinner').modal('show')     
+        $('#modalWinner').modal('show');
+           
         //localStorage.setItem('winner', this.winner);
         //location.href = '/winner';
         Global.activeGame=false;
