@@ -6,7 +6,7 @@ class GamePage extends Component {
     this.game = new Game();
     this.playerCounter1 = 21;
     this.playerCounter2 = 21;
-    
+    Global.activeGame=true;        
     this.eventListeners();
     this.addEvents({
       'click .btn-outline-success': 'highScore',
@@ -42,7 +42,6 @@ class GamePage extends Component {
     let that = this;
     let col;
     document.addEventListener('click', function (event) {
-      Global.activeGame=true;        
       if (event.target.classList.contains('empty')) {
         // columns and rows
         col = event.target.getAttribute('h-coll');

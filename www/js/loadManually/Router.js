@@ -15,6 +15,7 @@ class Router {
     $(document).on('click', 'a', function(e){
       // assume all links starting with '/' are internal
       let link = $(this).attr('href');
+      // -----> get the element you clicked 
       that.navBar.itemClicked($(this)[0]);
       if(link.indexOf('/') === 0){
         e.preventDefault(); // no hard reload of page
@@ -40,9 +41,11 @@ class Router {
   setActiveLink(){
     $('a').removeClass('active');
     $(`a[href="${Router.path}"]`).addClass('active');
+    // ----> To change the navbar depending on different pages 
     if (this.navBar) {
       if (Router.path === '/game' || Router.path === '/gameForm'){
         this.navBar.replaceLink('Cancel', '/');
+        // ----> To see, if the game is active or not 
       }else if(Global.activeGame){
         this.navBar.replaceLink('Game', '/game');
       }
