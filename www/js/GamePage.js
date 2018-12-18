@@ -6,12 +6,15 @@ class GamePage extends Component {
     this.game = new Game();
     this.playerCounter1 = 21;
     this.playerCounter2 = 21;
+    
     this.eventListeners();
     this.addEvents({
       'click .btn-outline-success': 'highScore',
       'click #rematch': 'rematch'
     });
     this.setEmpty();
+    this.bot();
+
   }
 
   // TODO: Generate HTML with array
@@ -31,10 +34,10 @@ class GamePage extends Component {
     }  
   }//setEmpty
 
-
   highScore() {
     location.href = '/hiScore'
   }
+  
   eventListeners() {
     let that = this;
     let col;
@@ -50,34 +53,7 @@ class GamePage extends Component {
         //let lastEmptyCell = findLastEmptyCell(col);
         
         // remove empty and add player color to div
-        if (this.player == 'red') {
-          Global.color[col][row]='red';
-          //lastEmptyCell[0].classList.remove('empty');
-          //lastEmptyCell[0].classList.add('red');
-          this.player = 'yellow';
-          that.playerCounter1--;
-          document.getElementById("drag2").innerHTML = "Drag: " + that.playerCounter1;
-          document.getElementById("turn").innerHTML = localStorage.getItem('player-1-name') + "'s turn!";
-          document.getElementById("players").style.color =  "rgb(211, 211, 0)";
-          document.getElementById("players2").style.color = "green";
-
-
-
-        } else {
-          Global.color[col][row]='yellow';          
-          //lastEmptyCell[0].classList.remove('empty');
-          //lastEmptyCell[0].classList.add('yellow');
-          this.player = 'red';
-          that.playerCounter2--;
-          document.getElementById("drag").innerHTML = "Drag: " + that.playerCounter2;
-          document.getElementById("turn").innerHTML = localStorage.getItem('player-2-name') + "'s turn!";
-          document.getElementById("players").style.color = "green";
-          document.getElementById("players2").style.color = "red";
-
-
-
-
-        }
+        that.placeColor(col,row);
 
         that.game.playerMove(col, row);
         that.render();
@@ -98,6 +74,52 @@ class GamePage extends Component {
     });//addevent click
 
   }//metoden eventlistener
+  
+  placeColor(col, row){
+    console.log('col'+col+'row '+row);
+    
+    // remove empty and add player color to div
+    if (this.player == 'red') {
+      console.log('if');
+      
+      Global.color[col][row]='red';
+      console.log(Global.color);
+      
+      //lastEmptyCell[0].classList.remove('empty');
+      //lastEmptyCell[0].classList.add('red');
+      this.player = 'yellow';
+      this.playerCounter1--;
+      //document.getElementById("drag2").innerHTML = "Drag: " + this.playerCounter1;
+      //document.getElementById("turn").innerHTML = localStorage.getItem('player-1-name') + "'s turn!";
+      //document.getElementById("players").style.color =  "rgb(211, 211, 0)";
+      //document.getElementById("players2").style.color = "green";
+
+    } else {
+      Global.color[col][row]='yellow';          
+      //lastEmptyCell[0].classList.remove('empty');
+      //lastEmptyCell[0].classList.add('yellow');
+      this.player = 'red';
+      this.playerCounter2--;
+      //document.getElementById("drag").innerHTML = "Drag: " + this.playerCounter2;
+      //document.getElementById("turn").innerHTML = localStorage.getItem('player-2-name') + "'s turn!";
+      //document.getElementById("players").style.color = "green";
+      //document.getElementById("players2").style.color = "red";
+
+  }
+
+}
+  //kollar om "type" är bot.
+  bot(){
+    
+    console.log('hej')
+        if (localStorage.getItem('typ-1')){
+          let rand = (Math.floor(Math.random() * 7))
+          this.game.playerMove(rand, 5);
+          this.placeColor(rand, 5)
+          }
+   }
+        
+      
   rematch(){
     location.reload(); 
     this.game.buildBoard();

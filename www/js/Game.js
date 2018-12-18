@@ -54,7 +54,10 @@ class Game{
             Global.activeGame=false;
         }
         this.round++;
+        console.log(this.board);
         } //playerMove
+        
+        
 
         checkSide(row, col) {
         let winCounter = 0;
