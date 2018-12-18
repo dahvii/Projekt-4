@@ -42,7 +42,10 @@ class Router {
     if (this.navBar) {
       if (Router.path === '/game' || Router.path === '/gameForm'){
         this.navBar.replaceLink('Cancel', '/');
-      } else{
+      }else if(Global.activeGame){
+        this.navBar.replaceLink('Game', '/game');
+      }
+       else{
         this.navBar.replaceLink('Game', '/gameForm');
       }
     }

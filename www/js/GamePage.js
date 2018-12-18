@@ -8,10 +8,10 @@ class GamePage extends Component {
     this.playerCounter2 = 21;
     this.eventListeners();
     this.addEvents({
-      'click .btn-outline-success': 'highScore'
+      'click .btn-outline-success': 'highScore',
+      'click #rematch': 'rematch'
     });
     this.buildHtml();
-   
   }
 
   // TODO: Generate HTML with array
@@ -269,27 +269,36 @@ class GamePage extends Component {
           lastEmptyCell[0].classList.add('red');
           this.player = 'yellow';
           that.playerCounter1--;
-          document.getElementById("drag2").innerHTML = "Drag" + that.playerCounter1;
+          document.getElementById("drag2").innerHTML = "Drag: " + that.playerCounter1;
           document.getElementById("turn").innerHTML = localStorage.getItem('player-1-name') + "'s turn!";
+          document.getElementById("players").style.color =  "rgb(211, 211, 0)";
+          document.getElementById("players2").style.color = "green";
+
+
 
         } else {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('yellow');
           this.player = 'red';
           that.playerCounter2--;
-          document.getElementById("drag").innerHTML = "Drag" + that.playerCounter2;
+          document.getElementById("drag").innerHTML = "Drag: " + that.playerCounter2;
           document.getElementById("turn").innerHTML = localStorage.getItem('player-2-name') + "'s turn!";
+          document.getElementById("players").style.color = "green";
+          document.getElementById("players2").style.color = "red";
+
+
 
 
         }
-        
-        Global.board = document.getElementById("gamepage").innerHTML;
+
+        //Global.board = this.baseEl.find('#gamepage').val();
         that.game.playerMove(col);
       }//if empty
 
       //jQuery
       function findLastEmptyCell(col) {
         const cells = $(`.coll[h-coll='${col}']`);
+
         for (let i = cells.length - 1; i >= 0; i--) {
           const $cell = $(cells[i]);
           if ($cell.hasClass('empty')) {
@@ -301,5 +310,7 @@ class GamePage extends Component {
     });//addevent click
 
   }//metoden eventlistener
-
+  rematch(){
+    location.reload(); 
+  }
 }

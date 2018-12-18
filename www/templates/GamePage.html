@@ -1,7 +1,7 @@
 <div>
   <div class="name">
     <div>
-    <div class="players">
+    <div id="players">
       ${this.player == 'red' ? localStorage.getItem('player-1-name') : localStorage.getItem('player-2-name')}
     </div>
     <div id="drag">Drag: ${this.playerCounter1}</div> 
@@ -11,7 +11,7 @@
       ${this.player == 'red' ? localStorage.getItem('player-1-name') : localStorage.getItem('player-2-name')}'s turn!
     </div>
     <div>
-    <div class="players">
+    <div id="players2">
       ${this.player == 'yellow' ? localStorage.getItem('player-1-name') : localStorage.getItem('player-2-name')}
     </div>
     <div id="drag2">Drag: ${this.playerCounter2}</div> 
@@ -264,7 +264,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-success">High Score</button>
-          <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+          <button type="button" id="rematch" class="btn btn-outline-dark" data-dismiss="modal">Rematch</button>
         </div>
       </div>
     </div>
@@ -284,7 +284,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-success">High Score</button>
-          <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+          <button type="button" id="rematch" class="btn btn-outline-dark" data-dismiss="modal">Rematch</button>
         </div>
       </div>
     </div>
