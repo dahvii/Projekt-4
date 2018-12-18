@@ -9,7 +9,7 @@ class GamePage extends Component {
       'click .btn-outline-success': 'highScore',
       'click #rematch': 'rematch'
     });
-    this.buildHtml();
+    //this.buildHtml();
   }
 
   // TODO: Generate HTML with array
@@ -276,14 +276,15 @@ class GamePage extends Component {
 
 
         }
-        
-        Global.board = document.getElementById("gamepage").innerHTML;
+
+        //Global.board = this.baseEl.find('#gamepage').val();
         that.game.playerMove(col);
       }//if empty
 
       //jQuery
       function findLastEmptyCell(col) {
         const cells = $(`.coll[h-coll='${col}']`);
+
         for (let i = cells.length - 1; i >= 0; i--) {
           const $cell = $(cells[i]);
           if ($cell.hasClass('empty')) {
