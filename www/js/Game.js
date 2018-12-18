@@ -23,35 +23,20 @@ class Game{
 
     findEmptyCell(click){
         click = parseInt(click);
-        Global.activeGame=true;        
-
-        //which player?
-        if (this.round % 2 === 0) {
-            this.currPlayer = 2;
-            this.player2round++; 
-        } else {
-            this.currPlayer = 1;
-            this.player1round++;
-        }
-        
-        //is the slot empty? if so put currPlayer in slot
+        //is the slot empty? 
         let moveIsDone = false;
-        let currRow, currCol;
+        let currRow;
 
         for (let i = 5; i >= 0 && !moveIsDone; i--) {
             if (this.board[i][click] === 0) { // om platsen är tom
                 currRow = i;
-                currCol = click;
                 moveIsDone = true;
             }
         }
         return currRow;
     }//findEmptyCell
 
-    playerMove(click) {
-        click = parseInt(click);
-        Global.activeGame=true;        
-
+    playerMove(col, row) {
         //which player?
         if (this.round % 2 === 0) {
             this.currPlayer = 2;
@@ -60,29 +45,15 @@ class Game{
             this.currPlayer = 1;
             this.player1round++;
         }
-        
-        //is the slot empty? if so put currPlayer in slot
-        let moveIsDone = false;
-        let currRow, currCol;
-
-        for (let i = 5; i >= 0 && !moveIsDone; i--) {
-            if (this.board[i][click] === 0) { // om platsen är tom
-                this.board[i][click] = this.currPlayer; //lägg in spelarens siffra
-                currRow = i;
-                currCol = click;
-                moveIsDone = true;
-            }
-        }
-        
-        this.checkSide(currRow, currCol);
+         //lägg in spelarens siffra
+        this.board[row][col] = this.currPlayer;        
+    
+        this.checkSide(row, col);
         if (this.round === 42) { //om brädet är fullt
             $('#modalDraw').modal('show') 
             Global.activeGame=false;
         }
         this.round++;
-
-        console.log('activeGame '+Global.activeGame);
-        
         } //playerMove
 
         checkSide(row, col) {
@@ -152,12 +123,14 @@ class Game{
     setWinner(winner){
         if(winner === 1){
             this.winner = localStorage.getItem('player-1-name')  
+            //this.baseEl.find(`#modal-body`).val()= localStorage.getItem('player-1-name')+' is the winner';
             document.getElementById("modal-body").innerHTML = localStorage.getItem('player-1-name')+' is the winner';
         this.addHighScore(this.player1round);
         }else{
             this.winner = localStorage.getItem('player-2-name')
+            //this.baseEl.find(`#modal-body`).val()= localStorage.getItem('player-2-name')+' is the winner';
             document.getElementById("modal-body").innerHTML = localStorage.getItem('player-2-name')+' is the winner';
-        this.addHighScore(this.player2round);
+            this.addHighScore(this.player2round);
         }
         $('#modalWinner').modal('show')     
         //localStorage.setItem('winner', this.winner);

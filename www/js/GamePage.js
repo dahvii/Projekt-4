@@ -39,6 +39,7 @@ class GamePage extends Component {
     let that = this;
     let col;
     document.addEventListener('click', function (event) {
+      Global.activeGame=true;        
       if (event.target.classList.contains('empty')) {
         // columns and rows
         col = event.target.getAttribute('h-coll');
@@ -78,7 +79,7 @@ class GamePage extends Component {
 
         }
 
-        that.game.playerMove(col);
+        that.game.playerMove(col, row);
         that.render();
       }//if empty
 
