@@ -79,8 +79,8 @@ class GamePage extends Component {
 
         }
 
-        that.game.playerMove(col, row);
-        that.render();
+          that.render();
+          that.game.playerMove(col, row);
       }//if empty
 
       /*//jQuery

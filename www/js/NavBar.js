@@ -16,4 +16,9 @@ class NavBar extends Component {
     this.render(); 
   }
 
+  itemClicked(item) {
+    if (item && item.innerText === 'Cancel') {
+      Global.activeGame = false;
+    }
+  }
 }

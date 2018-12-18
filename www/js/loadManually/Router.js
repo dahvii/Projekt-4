@@ -15,6 +15,7 @@ class Router {
     $(document).on('click', 'a', function(e){
       // assume all links starting with '/' are internal
       let link = $(this).attr('href');
+      that.navBar.itemClicked($(this)[0]);
       if(link.indexOf('/') === 0){
         e.preventDefault(); // no hard reload of page
         history.pushState(null, null, link); // change url (no reload)
