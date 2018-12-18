@@ -6,7 +6,7 @@ class Game{
         this.winner = 0;
         this.board = [];
         this.buildBoard();
-        this.player1round=0
+        this.player1round=0;
         this.player2round=0;    
     } //constructor
 
@@ -23,6 +23,8 @@ class Game{
 
     playerMove(click) {
         click = parseInt(click);
+        Global.activeGame=true;        
+
         //which player?
         if (this.round % 2 === 0) {
             this.currPlayer = 2;
@@ -49,9 +51,12 @@ class Game{
         this.checkSide(currRow, currCol);
         if (this.round === 42) { //om brädet är fullt
             $('#modalDraw').modal('show') 
-            //location.href = '/draw';
+            Global.activeGame=false;
         }
         this.round++;
+
+        console.log('activeGame '+Global.activeGame);
+        
         } //playerMove
 
         checkSide(row, col) {
@@ -131,6 +136,7 @@ class Game{
         $('#modalWinner').modal('show')     
         //localStorage.setItem('winner', this.winner);
         //location.href = '/winner';
+        Global.activeGame=false;
     }//setWinner
     async addHighScore(moves) {
         //Modtager highscore fra spillet som string
