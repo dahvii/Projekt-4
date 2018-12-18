@@ -6,10 +6,10 @@ class GamePage extends Component {
     this.game = new Game();
     this.eventListeners();
     this.addEvents({
-      'click .btn-outline-success': 'highScore'
+      'click .btn-outline-success': 'highScore',
+      'click #rematch': 'rematch'
     });
     this.buildHtml();
-   
   }
 
   // TODO: Generate HTML with array
@@ -295,5 +295,7 @@ class GamePage extends Component {
     });//addevent click
 
   }//metoden eventlistener
-
+  rematch(){
+    window.location.replace(location)
+  }
 }
