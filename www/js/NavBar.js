@@ -9,5 +9,8 @@ class NavBar extends Component {
       new NavItem('HiScore', '/hiScore')
     ];
   }
-
+  replaceLink(name, link) {
+    this.navItems[1] = new NavItem(name, link)
+    this.render(); 
+  }
 }

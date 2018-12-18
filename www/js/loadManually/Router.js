@@ -1,9 +1,10 @@
 class Router {
 
-  constructor(mainInstance){
+  constructor(mainInstance, navBar){
     // The mainInstance is the object that should
     // be rerendered on route changes
     this.mainInstance = mainInstance;
+    this.navBar = navBar;
     this.listenToATagClicks();
     this.listenToBackForward();
     this.setPath(location.pathname);
@@ -38,6 +39,13 @@ class Router {
   setActiveLink(){
     $('a').removeClass('active');
     $(`a[href="${Router.path}"]`).addClass('active');
+    if (this.navBar) {
+      if (Router.path === '/game' || Router.path === '/gameForm'){
+        this.navBar.replaceLink('Cancel', '/');
+      } else{
+        this.navBar.replaceLink('Game', '/gameForm');
+      }
+    }
   }
 
   static registerRoute(route){
