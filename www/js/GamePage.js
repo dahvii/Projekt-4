@@ -56,7 +56,9 @@ class GamePage extends Component {
         that.placeColor(col,row);
 
           that.render();
-          that.game.playerMove(col, row);
+          that.game.playerMove(col, row); 
+          
+    
       }//if empty
 
       /*//jQuery
@@ -72,7 +74,8 @@ class GamePage extends Component {
         return null;
       }*/
     });//addevent click
-
+   
+  
   }//metoden eventlistener
   
   placeColor(col, row){
@@ -110,9 +113,7 @@ class GamePage extends Component {
 }
   //kollar om "type" är bot.
   bot(){
-    
-    console.log('hej')
-        if (localStorage.getItem('typ-1')){
+        if (localStorage.getItem('typ-1')=='bot'){
           let rand = (Math.floor(Math.random() * 7))
           this.game.playerMove(rand, 5);
           this.placeColor(rand, 5)
