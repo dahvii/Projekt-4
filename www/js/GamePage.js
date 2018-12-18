@@ -296,6 +296,6 @@ class GamePage extends Component {
 
   }//metoden eventlistener
   rematch(){
-    window.location.replace(location)
+    location.reload(); 
   }
 }
