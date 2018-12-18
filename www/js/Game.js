@@ -137,6 +137,14 @@ class Game{
         //localStorage.setItem('winner', this.winner);
         //location.href = '/winner';
         Global.activeGame=false;
+        if(winner !== null){
+            $("#gamepage").click(function (e) {
+                // Don't cancel the browser's default action
+                // and don't bubble this event!
+                e.stopPropagation();
+            });
+            
+        }
     }//setWinner
     async addHighScore(moves) {
         //Modtager highscore fra spillet som string
