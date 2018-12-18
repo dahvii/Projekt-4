@@ -4,6 +4,8 @@ class GamePage extends Component {
     this.player = 'red';
     this.addRoute('/game', 'Game');
     this.game = new Game();
+    this.playerCounter1 = 21;
+    this.playerCounter2 = 21;
     this.eventListeners();
     this.addEvents({
       'click .btn-outline-success': 'highScore'
@@ -266,12 +268,16 @@ class GamePage extends Component {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('red');
           this.player = 'yellow';
+          that.playerCounter1--;
+          document.getElementById("drag2").innerHTML = "Drag" + that.playerCounter1;
           document.getElementById("turn").innerHTML = localStorage.getItem('player-1-name') + "'s turn!";
 
         } else {
           lastEmptyCell[0].classList.remove('empty');
           lastEmptyCell[0].classList.add('yellow');
           this.player = 'red';
+          that.playerCounter2--;
+          document.getElementById("drag").innerHTML = "Drag" + that.playerCounter2;
           document.getElementById("turn").innerHTML = localStorage.getItem('player-2-name') + "'s turn!";
 
 
