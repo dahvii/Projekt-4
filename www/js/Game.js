@@ -21,6 +21,33 @@ class Game{
         }  
     } //buildBoard
 
+    findEmptyCell(click){
+        click = parseInt(click);
+        Global.activeGame=true;        
+
+        //which player?
+        if (this.round % 2 === 0) {
+            this.currPlayer = 2;
+            this.player2round++; 
+        } else {
+            this.currPlayer = 1;
+            this.player1round++;
+        }
+        
+        //is the slot empty? if so put currPlayer in slot
+        let moveIsDone = false;
+        let currRow, currCol;
+
+        for (let i = 5; i >= 0 && !moveIsDone; i--) {
+            if (this.board[i][click] === 0) { // om platsen är tom
+                currRow = i;
+                currCol = click;
+                moveIsDone = true;
+            }
+        }
+        return currRow;
+    }//findEmptyCell
+
     playerMove(click) {
         click = parseInt(click);
         Global.activeGame=true;        
@@ -34,7 +61,6 @@ class Game{
             this.player1round++;
         }
         
-
         //is the slot empty? if so put currPlayer in slot
         let moveIsDone = false;
         let currRow, currCol;
@@ -47,7 +73,7 @@ class Game{
                 moveIsDone = true;
             }
         }
-
+        
         this.checkSide(currRow, currCol);
         if (this.round === 42) { //om brädet är fullt
             $('#modalDraw').modal('show') 
@@ -146,6 +172,7 @@ class Game{
             
         }
     }//setWinner
+
     async addHighScore(moves) {
         //Modtager highscore fra spillet som string
         let highscore = await JSON._load('highscoreArray.json');
