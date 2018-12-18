@@ -13,7 +13,7 @@ class GamePage extends Component {
       'click #rematch': 'rematch'
     });
     this.setEmpty();
-    this.bot();
+    this.firstMove();
 
   }
 
@@ -53,10 +53,12 @@ class GamePage extends Component {
         
         // remove empty and add player color to div
         that.placeColor(col,row);
-
-          that.render();
-          that.game.playerMove(col, row); 
-          
+        that.game.playerMove(col, row); 
+        console.log('winner'+that.game.winner);
+        
+        if (that.game.winner === 0){
+          that.bot();
+        }
     
       }//if empty
 
@@ -73,20 +75,12 @@ class GamePage extends Component {
         return null;
       }*/
     });//addevent click
-   
-  
   }//metoden eventlistener
   
   placeColor(col, row){
-    console.log('col'+col+'row '+row);
-    
     // remove empty and add player color to div
     if (this.player == 'red') {
-      console.log('if');
-      
       Global.color[col][row]='red';
-      console.log(Global.color);
-      
       //lastEmptyCell[0].classList.remove('empty');
       //lastEmptyCell[0].classList.add('red');
       this.player = 'yellow';
@@ -106,17 +100,32 @@ class GamePage extends Component {
       //document.getElementById("turn").innerHTML = localStorage.getItem('player-2-name') + "'s turn!";
       //document.getElementById("players").style.color = "green";
       //document.getElementById("players2").style.color = "red";
-
   }
-
+  this.render();
 }
-  //kollar om "type" är bot.
+  //kollar om "type" är bot och gör isåfall ett drag
   bot(){
-        if (localStorage.getItem('typ-1')=='bot'){
-          let rand = (Math.floor(Math.random() * 7))
-          this.game.playerMove(rand, 5);
-          this.placeColor(rand, 5)
-          }
+        if (localStorage.getItem('typ-1')=='bot' || localStorage.getItem('typ-2')=='bot' ){
+          let millisecondsToWait = 500;
+          let that=this;
+          setTimeout(function() {
+            let rand = (Math.floor(Math.random() * 7));
+            console.log('rand dvs column'+rand);
+            
+            let emptyCell=that.game.findEmptyCell(rand);
+            console.log('emptyCell dvs rad'+ emptyCell);
+
+            that.game.playerMove(rand, emptyCell);
+            that.placeColor(rand, emptyCell);
+          }, millisecondsToWait);
+        }
+   }
+   //kollar om det första draget görs av en bot
+   firstMove(){
+    if (localStorage.getItem('typ-1')=='bot'){
+      this.bot();
+    }
+
    }
         
       
