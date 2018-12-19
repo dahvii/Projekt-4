@@ -90,7 +90,8 @@ class GamePage extends Component {
       this.matrix[col][row].color='yellow';
       //this.matrixOfColor[col][row]='yellow';
     }
-    this.render();    
+    this.render(); 
+    console.log('jag är här')   
   }//placeColor
 
   //kollar om "type" är bot och gör isåfall ett drag
