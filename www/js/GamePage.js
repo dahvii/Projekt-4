@@ -2,16 +2,19 @@ class GamePage extends Component {
   constructor() {
     super();
     this.addRoute('/game', 'Game');
+    Global.gamePage = this;
     this.formPage = Global.formPage;
     this.game = new Game(this);
     //Global.activeGame=true;        
     this.addEvents({
-      'click .btn-outline-success': 'highScore',
-      'click #rematch': 'newGame',
-      'click .btn-outline-dark': 'newGame',
+      'click #highscoreButton': 'highScore',
+      'click #rematch': 'rematch',
+      'click .btn-outline-dark': 'rematch',
     });
     this.buildMatrix();
-    this.bot();
+    //this.bot();
+    console.log('GamePagekonstruktor');
+    
   }//constructor
 
 
@@ -43,7 +46,9 @@ class GamePage extends Component {
   }//buildMatrix
 
   highScore() {
-    history.pushState(null, null, '/hiScore');
+      this.clearBoard();
+      $('#modalWinner').modal('hide');
+      history.pushState(null, null, '/hiScore');
       Global.router.setPath('/hiScore');
       Global.router.mainInstance.render();
   }
@@ -59,7 +64,14 @@ class GamePage extends Component {
       this.board.push(rowArr);
     }
 
-    //which player?
+    let col=currSlot.col;
+    let row = this.game.findEmptyCell(col);
+
+    //gör draget
+    this.placeColor(row, col); 
+    this.game.playerMove(row, col); 
+
+    //which player
     if (this.game.round % 2 === 0) {
       Global.formPage.currPlayer = Global.formPage.player2;
       Global.formPage.currPlayer.moves--;
@@ -68,17 +80,9 @@ class GamePage extends Component {
       Global.formPage.currPlayer = Global.formPage.player1;
       Global.formPage.currPlayer.moves--;
     }
-    let col=currSlot.col;
-    let row = this.game.findEmptyCell(col);
-
-    //gör draget
-    this.placeColor(row, col); 
-    this.game.playerMove(row, col); 
-
     //kolla om nästa spelare är en bot och låt den isåfall gör ett drag
-    if(this.game.winner === 0){
       this.bot(); 
-    }
+    
   }//placeDisc
   
   placeColor(col, row){
@@ -96,7 +100,10 @@ class GamePage extends Component {
 
   //kollar om "type" är bot och gör isåfall ett drag
   bot(){
+    console.log('i bot() och currPlayer är ', this.formPage.currPlayer);
+    
     if (this.formPage.currPlayer instanceof Bot){
+      console.log('går in i bot() if');      
       let millisecondsToWait = 500;
       let emptyCell, rand;
       setTimeout(() => {
@@ -105,31 +112,30 @@ class GamePage extends Component {
           emptyCell=this.game.findEmptyCell(rand);
         }            
         if(emptyCell !== undefined && this.game.winner == undefined ){
-          this.placeColor(rand, emptyCell);
-          this.game.playerMove(rand, emptyCell);
+          this.placeDisc(this.matrix[emptyCell][rand]);
+          //this.placeColor(rand, emptyCell);
+          //this.game.playerMove(rand, emptyCell);
         }
         
       }, millisecondsToWait);
     }
   }//bot
    
-      
-  rematch(){
-    // remove old GamePage instance
-    // (mostly to not waste memory)
-    delete App.pageContent.gamePage;
-    // add a new instance (with clean new property values)
-    App.pageContent.gamePage = new GamePage();
+
+  rematch() {
+    this.clearBoard();
     // rerender the whole pageContent component
     // to show the new gamePage instance
-    App.pageContent.render();
-  }
-
-  newGame(){
-    this.game = new Game(this);   
     this.buildMatrix();
-    this.render();
-    this.bot();
-
+    Global.router.mainInstance.render();
+  }
+      
+  clearBoard(){
+    // remove old GamePage instance
+    // (mostly to not waste memory)
+    const pageContent = Global.router.mainInstance;
+    delete pageContent.gamePage;
+    // add a new instance (with clean new property values)
+    pageContent.gamePage = new GamePage();
   }
 }

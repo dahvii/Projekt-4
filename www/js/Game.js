@@ -32,7 +32,7 @@ class Game {
 
         this.round++;   
         // call the bot method in gamePage
-        this.gamePage.bot();
+        //this.gamePage.bot();
        
     } //playerMove
         
@@ -108,7 +108,7 @@ class Game {
             this.winner = localStorage.getItem('player-2-name')
         }
         document.getElementById("modal-body").innerHTML = this.winner+' is the winner';
-        this.addHighScore(this.player2round);
+        this.addHighScore(Math.ceil(this.round / 2));
 
         $('#modalWinner').modal('show');
            
