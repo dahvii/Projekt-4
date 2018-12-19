@@ -2,7 +2,7 @@
   <div class="name">
     <div>
     <div id="players">
-      ${this.player == 'red' ? localStorage.getItem('player-1-name') : localStorage.getItem('player-2-name')}
+      ${localStorage.getItem('player-1-name')}
     </div>
     <div id="drag">Drag: ${this.playerCounter1}</div> 
 
@@ -12,7 +12,7 @@
     </div>
     <div>
     <div id="players2">
-      ${this.player == 'yellow' ? localStorage.getItem('player-1-name') : localStorage.getItem('player-2-name')}
+      ${localStorage.getItem('player-2-name')}
     </div>
     <div id="drag2">Drag: ${this.playerCounter2}</div> 
 

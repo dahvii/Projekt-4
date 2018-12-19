@@ -201,7 +201,7 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   border-radius: 10px 10px;
   flex:1;
   text-align: center;
-  color: green;
+  color: rgb(211, 211, 0);
   font-size: 3vw;
 }
 #players{
@@ -211,7 +211,7 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   border-radius: 10px 10px;
   flex:1;
   text-align: center;
-  color: rgb(211, 211, 0);
+  color: rgb(211, 8, 8);
   font-size: 3vw;
 }
 #turn{
@@ -245,6 +245,12 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   #secondjumbo{
     display: none; 
   }
+
+  .players{
+    margin-right: 17vw;
+    margin-top: 80vh;
+  }
+
   .paragraff{
     font-size: 2vh; 
     font-family: 'Electrolize', sans-serif;
