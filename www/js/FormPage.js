@@ -57,16 +57,15 @@ class FormPage extends Component {
       success = false;
     }
 
-    if (success) {
-      if (this.player1.name !== this.player2.name) {
-        location.href = '/game';
-      }
-
-      else {
-        $('#invalid-input1').show();
-        $('#invalid-input2').show();
-      }
+    if (!success || this.player1.name === this.player2.name) {
+      $('#invalid-input1').show();
+      $('#invalid-input2').show();
     }    
+    else {
+      history.pushState(null, null, '/game');
+      Global.router.setPath('/game');
+      Global.router.mainInstance.render();
+    }
   }
 
   validate(name) {
