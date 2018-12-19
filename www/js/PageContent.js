@@ -2,7 +2,6 @@ class PageContent extends Component {
 
   constructor() {
     super();
-    App.pageContent = this; // make me global
     this.startPage = new StartPage();
     this.formPage = new FormPage();
     this.gamePage = new GamePage();
