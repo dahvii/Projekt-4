@@ -56,17 +56,18 @@ class FormPage extends Component {
       $('#invalid-input2').show();
       success = false;
     }
-
-    if (!success || this.player1.name === this.player2.name) {
+    if(success){
+    if (this.player1.name === this.player2.name) {
       $('#invalid-input1').show();
       $('#invalid-input2').show();
     }    
     else {
-      history.pushState(null, null, '/game');
+      history.pushState(null, null, '/game')
       Global.router.setPath('/game');
       Global.router.mainInstance.render();
     }
   }
+}
 
   validate(name) {
     return name.length >= 2 && name.length <= 10;

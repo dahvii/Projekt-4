@@ -36,7 +36,9 @@ class GamePage extends Component {
   }//buildMatrix
 
   highScore() {
-    location.href = '/hiScore'
+    history.pushState(null, null, '/hiScore');
+      Global.router.setPath('/hiScore');
+      Global.router.mainInstance.render();
   }
 
   placeDisc(currSlot){
