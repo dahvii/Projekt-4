@@ -45,9 +45,6 @@ class Game {
        
     } //playerMove
         
-        
-
-
 
     checkSide(row, col) {
         let winCounter = 0;
@@ -73,7 +70,7 @@ class Game {
     checkDown(row, col) {
         let winCounter = 0;
         //check down
-        for (let down = row + 1; down < 6 &&  this.gamePage.matrix[row][toRight].color === Global.formPage.currPlayer.color && winCounter <= 3; down++) {
+        for (let down = row + 1; down < 6 &&  this.gamePage.matrix[row][down].color === Global.formPage.currPlayer.color && winCounter <= 3; down++) {
             winCounter++;
         }
 
@@ -88,7 +85,7 @@ class Game {
         let winCounter = 0;
 
         //check to down to right
-        for (let down = row + 1, right = col + 1; down < 6 && right < 7 &&  this.gamePage.matrix[row][toRight].color === this.currPlayer.color && winCounter <= 3; down++, right++) {
+        for (let down = row + 1, right = col + 1; down < 6 && right < 7 &&  this.gamePage.matrix[right][down].color === this.currPlayer.color && winCounter <= 3; down++, right++) {
             winCounter++;
         }
 
@@ -104,7 +101,7 @@ class Game {
         let winCounter = 0;
 
         //check to down to left
-        for (let down = row + 1, left = col - 1; down < 6 && left >= 0 &&  this.gamePage.matrix[row][toRight].color === this.currPlayer.color && winCounter <= 3; left--, down++) {
+        for (let down = row + 1, left = col - 1; down < 6 && left >= 0 &&  this.gamePage.matrix[left][down].color === this.currPlayer.color && winCounter <= 3; left--, down++) {
             winCounter++;
         }
 
