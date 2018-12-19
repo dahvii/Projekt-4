@@ -9,28 +9,38 @@ class FormPage extends Component {
       'click #start-button': 'addPlayer',
       'keyup #name-input1': 'pressEnter'
     });
+    this.gamePage = new GamePage(this);
   }
 
 
   addPlayer() {
+
+    if($('#typ-1').val() === 'bot'){
+      this.player1= new Bot($('#name-input1').val(), 'red', 1, 21);
+    }
+    else{
+      this.player1= new Player($('#name-input1').val(), 'red', 1, 21);
+    }
+
+    if($('#typ-2').val() === 'bot'){
+      this.player2= new Bot($('#name-input2').val(), 'yellow', 2, 21);
+    }
+    else{
+      this.player2= new Player($('#name-input2').val(), 'yellow', 2, 21);
+    }
+
     $('#invalid-input1').hide();
     $('#invalid-input2').hide();
-    const player1 = $('#name-input1').val();
-    const player2 = $('#name-input2').val();
-    const typ1 = $('#typ-1').val();
-    const typ2 = $('#typ-2').val();
     let success = true;
-    if (this.validate(player1)) {
-      localStorage.setItem('player-1-name', player1);
-      localStorage.setItem('typ-1', typ1);
+    if (this.validate(this.player1.name)) {
+      localStorage.setItem('player-1-name', this.player1.name);
     } else {
       $('#invalid-input1').show();
       success = false;
     }
 
-    if (this.validate(player2)) {
-      localStorage.setItem('player-2-name', player2);
-      localStorage.setItem('typ-2', typ2);
+    if (this.validate(this.player2.name)) {
+      localStorage.setItem('player-2-name', this.player2.name);
 
     } else {
       $('#invalid-input2').show();
@@ -38,7 +48,7 @@ class FormPage extends Component {
     }
 
     if (success) {
-      if (player1 !== player2) {
+      if (this.player1.name !== this.player2.name) {
         location.href = '/game';
       }
 
