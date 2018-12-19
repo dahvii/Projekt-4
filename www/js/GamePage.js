@@ -7,8 +7,8 @@ class GamePage extends Component {
     //Global.activeGame=true;        
     this.addEvents({
       'click .btn-outline-success': 'highScore',
-      'click #rematch': 'rematch',
-      'click .btn-outline-dark': 'rematch',
+      'click #rematch': 'newGame',
+      'click .btn-outline-dark': 'newGame',
     });
     this.buildMatrix();
     this.bot();
@@ -83,7 +83,6 @@ class GamePage extends Component {
   
   placeColor(col, row){
     // remove empty and add player color
-    console.log(this.formPage.currPlayer,"HAHAHAHA")
     if (this.formPage.currPlayer.color === 'red') {
       this.matrix[col][row].color='red';
       //this.matrixOfColor[col][row]='red';
@@ -123,5 +122,13 @@ class GamePage extends Component {
     // rerender the whole pageContent component
     // to show the new gamePage instance
     App.pageContent.render();
+  }
+
+  newGame(){
+    this.game = new Game(this);   
+    this.buildMatrix();
+    this.render();
+    this.bot();
+
   }
 }
