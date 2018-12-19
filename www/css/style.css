@@ -128,7 +128,7 @@ main {
 }
 
 
-#gamepage {
+.board {
   border: 25px solid rgba(30, 100, 240, 1);
   border-radius: 5%;
   box-shadow: 10px 7px 15px grey;
