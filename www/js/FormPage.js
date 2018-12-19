@@ -7,7 +7,9 @@ class FormPage extends Component {
       'click #start-button': 'addPlayer',
       'keyup #name-input2': 'pressEnter',
       'click #start-button': 'addPlayer',
-      'keyup #name-input1': 'pressEnter'
+      'keyup #name-input1': 'pressEnter',
+      'keydown #name-input1': 'pressSpace',
+      'keydown #name-input2': 'pressSpace'
     });
     Global.formPage = this;
   }
@@ -78,6 +80,12 @@ class FormPage extends Component {
   pressEnter(e) {
     if (e.which === 13) {
       this.addPlayer();
+    }
+  }
+
+  pressSpace(e) {
+    if (e.which === 32){
+      e.preventDefault()
     }
   }
 }
