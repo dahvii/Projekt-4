@@ -5,6 +5,10 @@ class GamePage extends Component {
     Global.gamePage = this;
     this.formPage = Global.formPage;
     this.game = new Game(this);
+    this.player='red'
+    this.movesLeft = 21;
+    this.movesLeft2 = 21;
+
     //Global.activeGame=true;        
     this.addEvents({
       'click #highscoreButton': 'highScore',
@@ -89,9 +93,13 @@ class GamePage extends Component {
     // remove empty and add player color
     if (this.formPage.currPlayer.color === 'red') {
       this.matrix[col][row].color='red';
+      this.player='yellow'
+      this.movesLeft--;
       //this.matrixOfColor[col][row]='red';
     } else {
       this.matrix[col][row].color='yellow';
+      this.player='red'
+      this.movesLeft2--;
       //this.matrixOfColor[col][row]='yellow';
     }
     this.render(); 

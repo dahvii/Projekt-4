@@ -1,20 +1,20 @@
 <div>
   <div class="name">
     <div>
-      <div class="${this.player!=='red' ? 'activePlayer' : ''}" id="players">
+      <div class="${this.player==='red' ? 'activePlayer' : ''}" id="players">
         ${localStorage.getItem('player-1-name')}
       </div>
-      <div id="drag">Drag: ${this.game.currPlayer ? this.game.currPlayer.moves : ''}</div>
+      <div id="drag">Drag: ${this.movesLeft}</div>
 
     </div>
     <div id="turn">
       <button type="button" class="btn btn-outline-dark">Rematch</button>
     </div>
     <div>
-      <div class="${this.player==='red' ? 'activePlayer' : ''}" id="players2">
+      <div class="${this.player!=='red' ? 'activePlayer' : ''}" id="players2">
         ${localStorage.getItem('player-2-name')}
       </div>
-      <div id="drag2">Drag: ${this.game.currPlayer ? this.game.currPlayer.moves : ''}</div>
+      <div id="drag2">Drag: ${this.movesLeft2}</div>
 
     </div>
 

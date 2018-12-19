@@ -12,6 +12,15 @@ body > div {
   text-shadow: 3px 2px black;
   padding-bottom: 10px;
 }
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 a{
   color: black; 
   font-family: 'Electrolize', sans-serif;
@@ -223,14 +232,13 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   font-size: 4vw;
   flex:3;
   text-align: center;
-  color:whitesmoke;
-  text-shadow: 2px 1px rgb(0, 92, 0);
 }
 
 .name, #drag2, #drag{
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 2vh;
+  margin-top: 2vh;
 }
 
 #modal-body{
@@ -238,6 +246,8 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
 }
 .activePlayer{
   border: 2px solid black !important;
+  box-shadow: 8px 7px 65px rgb(43, 43, 43);
+
 }
 
 .jumbotronContainer{

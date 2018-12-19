@@ -11,6 +11,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "jsonflex": "^1.0.10"
+    "jsonflex": "^1.0.10",
+    "nstall": "^0.2.0"
   }
 }
