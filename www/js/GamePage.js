@@ -10,7 +10,8 @@ class GamePage extends Component {
     this.eventListeners();
     this.addEvents({
       'click .btn-outline-success': 'highScore',
-      'click #rematch': 'rematch'
+      'click #rematch': 'rematch',
+      'click .btn-outline-dark': 'rematch'
     });
     this.setEmpty();
     this.firstMove();
