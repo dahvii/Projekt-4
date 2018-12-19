@@ -2,7 +2,7 @@ class Game {
 
     constructor(gamePage) {
         this.gamePage = gamePage;
-        this.currPlayer = Global.formPage.player1;
+        //this.currPlayer = Global.formPage.player1;
         this.round = 1;
         this.winner;
     } //constructor
@@ -26,14 +26,14 @@ class Game {
     playerMove(col, row) {
         //which player?
         if (this.round % 2 === 0) {
-            this.currPlayer = this.gamePage.formPage.player2;
-            this.currPlayer.moves--;
+            Global.formPage.currPlayer = this.gamePage.formPage.player2;
+            Global.formPage.currPlayer.moves--;
         } else {
-            this.currPlayer = this.gamePage.formPage.player1;
-            this.currPlayer.moves--;
+            Global.formPage.currPlayer = this.gamePage.formPage.player1;
+            Global.formPage.currPlayer.moves--;
         }
          //lägg in spelarens färg
-         this.gamePage.matrix[row][col].color=this.currPlayer.color;
+         this.gamePage.matrix[row][col].color=Global.formPage.currPlayer.color;
     
         this.checkSide(row, col);
         if (this.round === 42) { //om brädet är fullt
@@ -55,17 +55,17 @@ class Game {
         let winCounter = 0;
 
         //check to right
-        for (let toRight = col + 1; toRight < 7 && this.gamePage.matrix[row][toRight].color === this.currPlayer.color && winCounter <= 3; toRight++) {
+        for (let toRight = col + 1; toRight < 7 && this.gamePage.matrix[row][toRight].color === Global.formPage.currPlayer.color && winCounter <= 3; toRight++) {
             winCounter++;
         }
 
         //check to left
-        for (let toLeft = col - 1; toLeft >= 0 && this.gamePage.matrix[row][toRight].color === this.currPlayer.color && winCounter <= 3; toLeft--) {
+        for (let toLeft = col - 1; toLeft >= 0 && this.gamePage.matrix[row][toRight].color === Global.formPage.currPlayer.color && winCounter <= 3; toLeft--) {
             winCounter++;
         }
 
         if (winCounter >= 3) {
-            this.setWinner(this.currPlayer);
+            this.setWinner(Global.formPage.currPlayer);
 
         } else {
             this.checkDown(row, col);
@@ -75,12 +75,12 @@ class Game {
     checkDown(row, col) {
         let winCounter = 0;
         //check down
-        for (let down = row + 1; down < 6 &&  this.gamePage.matrix[row][toRight].color === this.currPlayer.color && winCounter <= 3; down++) {
+        for (let down = row + 1; down < 6 &&  this.gamePage.matrix[row][toRight].color === Global.formPage.currPlayer.color && winCounter <= 3; down++) {
             winCounter++;
         }
 
         if (winCounter >= 3) {
-            this.setWinner(this.currPlayer);
+            this.setWinner(Global.formPage.currPlayer);
         } else {
             this.checkDiagRight(row, col);
         }
@@ -95,7 +95,7 @@ class Game {
         }
 
         if (winCounter >= 3) {
-            this.setWinner(this.currPlayer);
+            this.setWinner(Global.formPage.currPlayer);
 
         } else {
             this.checkDiagLeft(row, col);
@@ -111,7 +111,7 @@ class Game {
         }
 
         if (winCounter >= 3) {
-            this.setWinner(this.currPlayer);
+            this.setWinner(Global.formPage.currPlayer);
         }
     } //checkDiagLeft
 

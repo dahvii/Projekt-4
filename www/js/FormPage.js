@@ -39,6 +39,8 @@ class FormPage extends Component {
 
     }
 
+    this.currPlayer = this.player1;
+
     $('#invalid-input1').hide();
     $('#invalid-input2').hide();
     let success = true;

@@ -3,8 +3,6 @@ class GamePage extends Component {
     super();
     this.addRoute('/game', 'Game');
     this.formPage = Global.formPage;
-    console.log(Global.formPage);
-    
     this.game = new Game(this);
     Global.activeGame=true;        
     this.addEvents({
@@ -43,11 +41,9 @@ class GamePage extends Component {
 
   placeDisc(currSlot){
     console.log('placeDisc');
-    console.log(this.currPlayer);
+    console.log(this.formPage.currPlayer);
     console.log(this.formPage.player1);
     console.log(this.formPage.player2);
-
-    
 
     let col=currSlot.col;
     let row = this.game.findEmptyCell(col);
@@ -64,7 +60,7 @@ class GamePage extends Component {
   
   placeColor(col, row){
     // remove empty and add player color to div
-    if (this.game.currPlayer.color === 'red') {
+    if (this.formPage.currPlayer.color === 'red') {
       this.matrix[col][row].color='red';
     } else {
       this.matrix[col][row].color='yellow';
@@ -74,7 +70,7 @@ class GamePage extends Component {
 
   //kollar om "type" är bot och gör isåfall ett drag
   bot(){
-    if (this.game.currPlayer instanceof Bot){
+    if (this.formPage.currPlayer instanceof Bot){
       let millisecondsToWait = 500;
       let emptyCell, rand;
       setTimeout(() => {
