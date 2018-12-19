@@ -1,13 +1,17 @@
 class Slot extends Component {
  
-    constructor(board, row, col){
+    constructor(gamePage, row, col){
       super();
-      this.board = board;
+      this.gamePage = gamePage;
       this.row = row;
       this.col = col;
       this.color = 'empty';
-      /*this.addEvents({
-        'click div': 'click'
-      });*/
+      this.addEvents({
+        'click .coll': 'click'
+      });
+    }
+
+    click(){
+        this.gamePage.placeDisc(this);
     }
 }

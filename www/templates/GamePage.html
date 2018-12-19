@@ -4,7 +4,7 @@
     <div class="${this.player==='red' ? 'activePlayer' : ''}" id="players">
       ${localStorage.getItem('player-1-name')}
     </div>
-    <div id="drag">Drag: ${this.game.currPlayer.moves}</div> 
+    <div id="drag">Drag: ${this.game.currPlayer ? this.game.currPlayer.moves : ''}</div> 
 
   </div>
     <div id="turn">
@@ -14,7 +14,7 @@
     <div class="${this.player!=='red' ? 'activePlayer' : ''}" id="players2">
       ${localStorage.getItem('player-2-name')}
     </div>
-    <div id="drag2">Drag: ${this.game.currPlayer.moves}</div> 
+    <div id="drag2">Drag: ${this.game.currPlayer ? this.game.currPlayer.moves : ''}</div> 
 
   </div>
 

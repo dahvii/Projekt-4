@@ -9,24 +9,34 @@ class FormPage extends Component {
       'click #start-button': 'addPlayer',
       'keyup #name-input1': 'pressEnter'
     });
-    this.gamePage = new GamePage(this);
+    Global.formPage = this;
   }
 
 
   addPlayer() {
+    console.log('addPlayer');
+
 
     if($('#typ-1').val() === 'bot'){
       this.player1= new Bot($('#name-input1').val(), 'red', 1, 21);
+      console.log('skapar bot');
+      
     }
     else{
       this.player1= new Player($('#name-input1').val(), 'red', 1, 21);
+      console.log('skapar human');
+
     }
 
     if($('#typ-2').val() === 'bot'){
       this.player2= new Bot($('#name-input2').val(), 'yellow', 2, 21);
+      console.log('skapar bot');
+
     }
     else{
       this.player2= new Player($('#name-input2').val(), 'yellow', 2, 21);
+      console.log('skapar human');
+
     }
 
     $('#invalid-input1').hide();
@@ -56,7 +66,7 @@ class FormPage extends Component {
         $('#invalid-input1').show();
         $('#invalid-input2').show();
       }
-    }
+    }    
   }
 
   validate(name) {

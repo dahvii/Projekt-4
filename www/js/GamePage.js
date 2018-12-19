@@ -1,18 +1,19 @@
 class GamePage extends Component {
-  constructor(formPage) {
+  constructor() {
     super();
     this.addRoute('/game', 'Game');
+    this.formPage = Global.formPage;
+    console.log(Global.formPage);
+    
     this.game = new Game(this);
     Global.activeGame=true;        
-    this.eventListeners();
     this.addEvents({
       'click .btn-outline-success': 'highScore',
       'click #rematch': 'rematch',
-      'click .btn-outline-dark': 'rematch'
+      'click .btn-outline-dark': 'rematch',
     });
     this.buildMatrix();
     this.bot();
-    this.formPage = formPage;
 
   }//constructor
 
@@ -38,43 +39,26 @@ class GamePage extends Component {
     location.href = '/hiScore'
   }
 
-  //tried to do a function, which can be used in addEvents in the constructor 
-  // Have doubts about variables names, how to push it, so you can see it in the DOM 
-  // Do not understand the whole h-coll thing, so you have to something about that 
-  placeDisk(){
-    let col; 
-    //Something about how you should loop through your array and see if it contains empty 
-    if(this.h-coll === 'empty'){
-      col = this.h-coll; 
-      let row = that.game.findEmptyCell(col);
-      col = parseInt(col); 
-      that.placeColor(col, row); 
-      that.game.playerMove(col, row); 
-      if(that.game.winner === 0){
-        that.bot(); 
-      }
-    }
-  }
+  placeDisc(currSlot){
+    console.log('placeDisc');
+    console.log(this.currPlayer);
+    console.log(this.formPage.player1);
+    console.log(this.formPage.player2);
 
-  eventListeners() {
-    let that = this;
-    let col;
-    document.addEventListener('click', function (event) {
-      if (event.target.classList.contains('empty')) {
-        // columns and rows
-        col = event.target.getAttribute('h-coll');
-        let row=that.game.findEmptyCell(col);
-        col = parseInt(col);
-        
-        // remove empty and add player color to div
-        that.placeColor(col,row);
-        that.game.playerMove(col, row);         
-        if (that.game.winner == undefined){
-          that.bot();
-        }
-      }//if empty
-    });//addevent click
-  }//metoden eventlistener
+    
+
+    let col=currSlot.col;
+    let row = this.game.findEmptyCell(col);
+
+    //gör draget
+    this.placeColor(col, row); 
+    this.game.playerMove(col, row); 
+
+    //kolla om nästa spelare är en bot och låt den isåfall gör ett drag
+    if(this.game.winner === 0){
+      this.bot(); 
+    }
+  }//placeDisc
   
   placeColor(col, row){
     // remove empty and add player color to div

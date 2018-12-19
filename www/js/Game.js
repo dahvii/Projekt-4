@@ -2,7 +2,7 @@ class Game {
 
     constructor(gamePage) {
         this.gamePage = gamePage;
-        this.currPlayer = this.gamePage.formPage.player1;
+        this.currPlayer = Global.formPage.player1;
         this.round = 1;
         this.winner;
     } //constructor
@@ -42,7 +42,6 @@ class Game {
         }
 
         this.round++;    
-        console.log(this.board);
         // call the bot method in gamePage
         this.gamePage.bot();
        
