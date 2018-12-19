@@ -66,6 +66,7 @@ class GamePage extends Component {
   
   placeColor(col, row){
     // remove empty and add player color
+    console.log(this.formPage.currPlayer,"HAHAHAHA")
     if (this.formPage.currPlayer.color === 'red') {
       this.matrix[col][row].color='red';
       this.matrixOfColor[col][row]='red';

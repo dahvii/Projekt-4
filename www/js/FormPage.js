@@ -38,8 +38,8 @@ class FormPage extends Component {
       console.log('skapar human');
 
     }
-
     this.currPlayer = this.player1;
+    console.log(this.currPlayer, "from formpage")
 
     $('#invalid-input1').hide();
     $('#invalid-input2').hide();
