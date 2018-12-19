@@ -38,8 +38,12 @@ class GamePage extends Component {
     location.href = '/hiScore'
   }
 
+  //tried to do a function, which can be used in addEvents in the constructor 
+  // Have doubts about variables names, how to push it, so you can see it in the DOM 
+  // Do not understand the whole h-coll thing, so you have to something about that 
   placeDisk(){
     let col; 
+    //Something about how you should loop through your array and see if it contains empty 
     if(this.h-coll === 'empty'){
       col = this.h-coll; 
       let row = that.game.findEmptyCell(col);
