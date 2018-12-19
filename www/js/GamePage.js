@@ -38,7 +38,21 @@ class GamePage extends Component {
   highScore() {
     location.href = '/hiScore'
   }
-  
+
+  placeDisk(){
+    let col; 
+    if(this.h-coll === 'empty'){
+      col = this.h-coll; 
+      let row = that.game.findEmptyCell(col);
+      col = parseInt(col); 
+      that.placeColor(col, row); 
+      that.game.playerMove(col, row); 
+      if(that.game.winner === 0){
+        that.bot(); 
+      }
+    }
+  }
+
   eventListeners() {
     let that = this;
     let col;
@@ -139,8 +153,13 @@ class GamePage extends Component {
         
       
   rematch(){
-    location.reload(); 
-    this.game.buildBoard();
-    this.setEmpty();
+    // remove old GamePage instance
+    // (mostly to not waste memory)
+    delete App.pageContent.gamePage;
+    // add a new instance (with clean new property values)
+    App.pageContent.gamePage = new GamePage();
+    // rerender the whole pageContent component
+    // to show the new gamePage instance
+    App.pageContent.render();
   }
 }
