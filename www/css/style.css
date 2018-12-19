@@ -73,6 +73,8 @@ body {
   font-family: 'Electrolize', sans-serif;
 }
 .paragraff{
+  text-align: center;
+
   font-weight: 700; 
   font-size: 3vh; 
   font-family: 'Electrolize', sans-serif;
@@ -81,8 +83,9 @@ body {
   font-family: 'Electrolize', sans-serif;
   background-color: rgba(0, 39, 148, 0.678);
 }
-.text {
+div .text {
   margin-left: 10vw;
+  margin-top: 20vh;
   font-family: 'Electrolize', sans-serif;
   font-weight: 900;
   font-size: 5vh;
@@ -201,6 +204,7 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   border: 1px solid lightgray;
   border-radius: 10px 10px;
   flex:1;
+  width: 20vw;
   text-align: center;
   color: rgb(226, 226, 8);
   font-size: 3vw;
@@ -211,6 +215,8 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   border: 1px solid lightgray;
   border-radius: 10px 10px;
   flex:1;
+  width: 20vw;
+
   text-align: center;
   color: rgb(211, 8, 8);
   font-size: 3vw;
@@ -247,8 +253,11 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   float: right; 
 }
 
-
-
+.flex-d{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 
 /* --- end --- */
 
@@ -257,20 +266,27 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
     display: none; 
   }
 
+  .navbar-img{
+    height: 17vh;
+    width: 10vw;
+
+  }
+
   .players{
     margin-right: 17vw;
     margin-top: 80vh;
   }
 
   .paragraff{
+    font-size: 2vh; 
     font-family: 'Electrolize', sans-serif;
-    font-weight: 700; 
   }
   .text{
     font-size: 3vh; 
     font-family: 'Electrolize', sans-serif;
     font-weight: 700;
-    padding-left: 7vw; 
+    margin: 0;
+    
 
   }
   .overskrift{
@@ -283,10 +299,8 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
     font-family: 'Electrolize', sans-serif;
     font-weight: 700; 
   }
-  .roww{
-    display: flex; 
-    flex-direction: column;
-    padding-left: 13vw;  
-  }
 
+  .paragraf{
+    color: red;
+  }
 }

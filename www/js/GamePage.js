@@ -3,8 +3,6 @@ class GamePage extends Component {
     super();
     this.addRoute('/game', 'Game');
     this.formPage = Global.formPage;
-    console.log(Global.formPage);
-    
     this.game = new Game(this);
     Global.activeGame=true;        
     this.addEvents({
@@ -33,6 +31,15 @@ class GamePage extends Component {
       }
       this.matrix.push(rowArr);
     }
+
+    this.matrixOfColor = [];
+    for(let row = 0; row < 6; row++){
+      let rowArr = [];
+      for(let col = 0; col < 7; col++){
+        rowArr.push('empty');
+      }
+      this.matrixOfColor.push(rowArr);
+    }
   }//buildMatrix
 
   highScore() {
@@ -43,18 +50,13 @@ class GamePage extends Component {
 
   placeDisc(currSlot){
     console.log('placeDisc');
-    console.log(this.currPlayer);
-    console.log(this.formPage.player1);
-    console.log(this.formPage.player2);
-
-    
-
+    console.log('currPlayer', this.formPage.currPlayer);
     let col=currSlot.col;
     let row = this.game.findEmptyCell(col);
 
     //gör draget
-    this.placeColor(col, row); 
-    this.game.playerMove(col, row); 
+    this.placeColor(row, col); 
+    this.game.playerMove(row, col); 
 
     //kolla om nästa spelare är en bot och låt den isåfall gör ett drag
     if(this.game.winner === 0){
@@ -63,18 +65,26 @@ class GamePage extends Component {
   }//placeDisc
   
   placeColor(col, row){
-    // remove empty and add player color to div
-    if (this.game.currPlayer.color === 'red') {
+    // remove empty and add player color
+    console.log(this.formPage.currPlayer,"HAHAHAHA")
+    if (this.formPage.currPlayer.color === 'red') {
       this.matrix[col][row].color='red';
+      this.matrixOfColor[col][row]='red';
     } else {
       this.matrix[col][row].color='yellow';
+      this.matrixOfColor[col][row]='yellow';
+
     }
     this.render();
+    console.log('placeColor');
+    console.log(this.matrixOfColor);
+    
+    
   }//placeColor
 
   //kollar om "type" är bot och gör isåfall ett drag
   bot(){
-    if (this.game.currPlayer instanceof Bot){
+    if (this.formPage.currPlayer instanceof Bot){
       let millisecondsToWait = 500;
       let emptyCell, rand;
       setTimeout(() => {
