@@ -4,7 +4,7 @@ class GamePage extends Component {
     this.addRoute('/game', 'Game');
     this.formPage = Global.formPage;
     this.game = new Game(this);
-    Global.activeGame=true;        
+    //Global.activeGame=true;        
     this.addEvents({
       'click .btn-outline-success': 'highScore',
       'click #rematch': 'rematch',
@@ -12,7 +12,6 @@ class GamePage extends Component {
     });
     this.buildMatrix();
     this.bot();
-
   }//constructor
 
 
@@ -32,6 +31,7 @@ class GamePage extends Component {
       this.matrix.push(rowArr);
     }
 
+    /* nedan endast för enklare avläsning i inspektion
     this.matrixOfColor = [];
     for(let row = 0; row < 6; row++){
       let rowArr = [];
@@ -39,7 +39,7 @@ class GamePage extends Component {
         rowArr.push('empty');
       }
       this.matrixOfColor.push(rowArr);
-    }
+    }*/
   }//buildMatrix
 
   highScore() {
@@ -49,8 +49,25 @@ class GamePage extends Component {
   }
 
   placeDisc(currSlot){
-    console.log('placeDisc');
-    console.log('currPlayer', this.formPage.currPlayer);
+    Global.activeGame=true; 
+    this.board = [];
+    for(let row = 0; row < 10; row++){
+      let rowArr = [];
+      for(let col = 0; col < 11; col++){
+        rowArr.push('empty');
+      }
+      this.board.push(rowArr);
+    }
+
+    //which player?
+    if (this.game.round % 2 === 0) {
+      Global.formPage.currPlayer = Global.formPage.player2;
+      Global.formPage.currPlayer.moves--;
+    } else {
+
+      Global.formPage.currPlayer = Global.formPage.player1;
+      Global.formPage.currPlayer.moves--;
+    }
     let col=currSlot.col;
     let row = this.game.findEmptyCell(col);
 
@@ -69,17 +86,12 @@ class GamePage extends Component {
     console.log(this.formPage.currPlayer,"HAHAHAHA")
     if (this.formPage.currPlayer.color === 'red') {
       this.matrix[col][row].color='red';
-      this.matrixOfColor[col][row]='red';
+      //this.matrixOfColor[col][row]='red';
     } else {
       this.matrix[col][row].color='yellow';
-      this.matrixOfColor[col][row]='yellow';
-
+      //this.matrixOfColor[col][row]='yellow';
     }
-    this.render();
-    console.log('placeColor');
-    console.log(this.matrixOfColor);
-    
-    
+    this.render();    
   }//placeColor
 
   //kollar om "type" är bot och gör isåfall ett drag
