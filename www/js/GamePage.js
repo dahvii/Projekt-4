@@ -2,6 +2,7 @@ class GamePage extends Component {
   constructor() {
     super();
     this.addRoute('/game', 'Game');
+    Global.gamePage = this;
     this.formPage = Global.formPage;
     this.game = new Game(this);
     //Global.activeGame=true;        
@@ -11,7 +12,9 @@ class GamePage extends Component {
       'click .btn-outline-dark': 'rematch',
     });
     this.buildMatrix();
-    this.bot();
+    //this.bot();
+    console.log('GamePagekonstruktor');
+    
   }//constructor
 
 
@@ -61,7 +64,14 @@ class GamePage extends Component {
       this.board.push(rowArr);
     }
 
-    //which player?
+    let col=currSlot.col;
+    let row = this.game.findEmptyCell(col);
+
+    //gör draget
+    this.placeColor(row, col); 
+    this.game.playerMove(row, col); 
+
+    //which player
     if (this.game.round % 2 === 0) {
       Global.formPage.currPlayer = Global.formPage.player2;
       Global.formPage.currPlayer.moves--;
@@ -70,17 +80,9 @@ class GamePage extends Component {
       Global.formPage.currPlayer = Global.formPage.player1;
       Global.formPage.currPlayer.moves--;
     }
-    let col=currSlot.col;
-    let row = this.game.findEmptyCell(col);
-
-    //gör draget
-    this.placeColor(row, col); 
-    this.game.playerMove(row, col); 
-
     //kolla om nästa spelare är en bot och låt den isåfall gör ett drag
-    if(this.game.winner === 0){
       this.bot(); 
-    }
+    
   }//placeDisc
   
   placeColor(col, row){
@@ -97,7 +99,10 @@ class GamePage extends Component {
 
   //kollar om "type" är bot och gör isåfall ett drag
   bot(){
+    console.log('i bot() och currPlayer är ', this.formPage.currPlayer);
+    
     if (this.formPage.currPlayer instanceof Bot){
+      console.log('går in i bot() if');      
       let millisecondsToWait = 500;
       let emptyCell, rand;
       setTimeout(() => {
@@ -106,8 +111,9 @@ class GamePage extends Component {
           emptyCell=this.game.findEmptyCell(rand);
         }            
         if(emptyCell !== undefined && this.game.winner == undefined ){
-          this.placeColor(rand, emptyCell);
-          this.game.playerMove(rand, emptyCell);
+          this.placeDisc(this.matrix[emptyCell][rand]);
+          //this.placeColor(rand, emptyCell);
+          //this.game.playerMove(rand, emptyCell);
         }
         
       }, millisecondsToWait);

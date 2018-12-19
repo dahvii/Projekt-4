@@ -66,6 +66,7 @@ class FormPage extends Component {
       $('#invalid-input2').show();
     }    
     else {
+      Global.gamePage.bot();
       history.pushState(null, null, '/game')
       Global.router.setPath('/game');
       Global.router.mainInstance.render();

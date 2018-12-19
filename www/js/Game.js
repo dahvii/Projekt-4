@@ -32,7 +32,7 @@ class Game {
 
         this.round++;   
         // call the bot method in gamePage
-        this.gamePage.bot();
+        //this.gamePage.bot();
        
     } //playerMove
         
