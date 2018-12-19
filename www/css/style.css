@@ -10,6 +10,7 @@ body > div {
   color: white; 
   font-size: 3em; 
   text-shadow: 3px 2px black;
+  padding-bottom: 10px;
 }
 a{
   color: black; 
@@ -235,12 +236,19 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   border: 2px solid black !important;
 }
 
+.jumbotronContainer{
+  display:flex;
+}
+
 .jumbotron{
   padding: 5px;
 }
 .img-fluid{
   float: right; 
 }
+
+
+
 
 /* --- end --- */
 
@@ -261,7 +269,6 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   }
 
   .paragraff{
-    font-size: 2vh; 
     font-family: 'Electrolize', sans-serif;
     font-weight: 700; 
   }
@@ -273,7 +280,7 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
 
   }
   .overskrift{
-    font-size: 4vh; 
+    font-size: 3em; 
     font-family: 'Electrolize', sans-serif;
     font-weight: 700;
   }
