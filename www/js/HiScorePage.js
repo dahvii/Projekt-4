@@ -18,7 +18,7 @@ class HiScorePage extends Component {
       setTimeout(() => {
         this.fillHighscore();
       }, 100);
-      this.isLoaded = true;
+      this.setLoaded(true);
     }
   }
 

@@ -6,9 +6,9 @@ class GamePage extends Component {
     this.game = new Game(this);
     //Global.activeGame=true;        
     this.addEvents({
-      'click .btn-outline-success': 'highScore',
-      'click #rematch': 'newGame',
-      'click .btn-outline-dark': 'newGame',
+      'click #highscoreButton': 'highScore',
+      'click #rematch': 'rematch',
+      'click .btn-outline-dark': 'rematch',
     });
     this.buildMatrix();
     this.bot();
@@ -130,13 +130,5 @@ class GamePage extends Component {
     delete pageContent.gamePage;
     // add a new instance (with clean new property values)
     pageContent.gamePage = new GamePage();
-  }
-
-  newGame(){
-    this.game = new Game(this);   
-    this.buildMatrix();
-    this.render();
-    this.bot();
-
   }
 }

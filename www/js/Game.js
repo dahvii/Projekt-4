@@ -114,7 +114,7 @@ class Game {
            
         Global.activeGame=false;
         if(winner !== null){
-            $("#gamePage").click(function (e) {
+            $("#gamepage").click(function (e) {
                 // Don't cancel the browser's default action
                 // and don't bubble this event!
                 e.stopPropagation();
