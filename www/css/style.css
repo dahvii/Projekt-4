@@ -76,6 +76,8 @@ body {
   font-weight: 700; 
   font-size: 3vh; 
   font-family: 'Electrolize', sans-serif;
+  margin-bottom: 1vh;
+  text-align: center;
 }
 .btn-primary {
   font-family: 'Electrolize', sans-serif;
@@ -264,10 +266,9 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
     display: none; 
   }
 
-  .navbar-img{
-    height: 17vh;
-    width: 10vw;
-
+  .flex-d{
+    display: flex;
+    flex-direction: column;
   }
 
   .players{
@@ -276,8 +277,10 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   }
 
   .paragraff{
-    font-size: 2vh; 
+    font-size: 5vw; 
     font-family: 'Electrolize', sans-serif;
+    margin-bottom: 1vh;
+    text-align: center;
   }
   .text{
     font-size: 3vh; 
