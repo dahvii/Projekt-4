@@ -108,13 +108,13 @@ class Game {
             this.winner = localStorage.getItem('player-2-name')
         }
         document.getElementById("modal-body").innerHTML = this.winner+' is the winner';
-        this.addHighScore(this.player2round);
+        this.addHighScore(Math.ceil(this.round / 2));
 
         $('#modalWinner').modal('show');
            
         Global.activeGame=false;
         if(winner !== null){
-            $("#gamepage").click(function (e) {
+            $("#gamePage").click(function (e) {
                 // Don't cancel the browser's default action
                 // and don't bubble this event!
                 e.stopPropagation();

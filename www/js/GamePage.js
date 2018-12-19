@@ -43,7 +43,9 @@ class GamePage extends Component {
   }//buildMatrix
 
   highScore() {
-    history.pushState(null, null, '/hiScore');
+      this.clearBoard();
+      $('#modalWinner').modal('hide');
+      history.pushState(null, null, '/hiScore');
       Global.router.setPath('/hiScore');
       Global.router.mainInstance.render();
   }
@@ -112,16 +114,22 @@ class GamePage extends Component {
     }
   }//bot
    
-      
-  rematch(){
-    // remove old GamePage instance
-    // (mostly to not waste memory)
-    delete App.pageContent.gamePage;
-    // add a new instance (with clean new property values)
-    App.pageContent.gamePage = new GamePage();
+
+  rematch() {
+    this.clearBoard();
     // rerender the whole pageContent component
     // to show the new gamePage instance
-    App.pageContent.render();
+    this.buildMatrix();
+    Global.router.mainInstance.render();
+  }
+      
+  clearBoard(){
+    // remove old GamePage instance
+    // (mostly to not waste memory)
+    const pageContent = Global.router.mainInstance;
+    delete pageContent.gamePage;
+    // add a new instance (with clean new property values)
+    pageContent.gamePage = new GamePage();
   }
 
   newGame(){

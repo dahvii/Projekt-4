@@ -17,7 +17,10 @@ class NavBar extends Component {
   }
 
   itemClicked(item) {
+    const { mainInstance } = Global.router;
+    mainInstance.hiScorePage.setLoaded(false);
     if (item && item.innerText === 'Cancel') {
+      mainInstance.gamePage.clearBoard();
       Global.activeGame = false;
     }
   }
