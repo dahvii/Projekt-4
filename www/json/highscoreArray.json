@@ -194,5 +194,8 @@
   {
     "name": "weff",
     "moves": 5
+  },
+  {
+    "name": "test"
   }
 ]

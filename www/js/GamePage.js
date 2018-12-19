@@ -41,10 +41,7 @@ class GamePage extends Component {
 
   placeDisc(currSlot){
     console.log('placeDisc');
-    console.log(this.formPage.currPlayer);
-    console.log(this.formPage.player1);
-    console.log(this.formPage.player2);
-
+    console.log('currPlayer', this.formPage.currPlayer);
     let col=currSlot.col;
     let row = this.game.findEmptyCell(col);
 
@@ -59,13 +56,17 @@ class GamePage extends Component {
   }//placeDisc
   
   placeColor(col, row){
-    // remove empty and add player color to div
+    // remove empty and add player color
     if (this.formPage.currPlayer.color === 'red') {
       this.matrix[col][row].color='red';
     } else {
       this.matrix[col][row].color='yellow';
     }
     this.render();
+    console.log('placeColor');
+    console.log(this.matrix);
+    
+    
   }//placeColor
 
   //kollar om "type" är bot och gör isåfall ett drag

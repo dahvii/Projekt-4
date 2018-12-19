@@ -26,15 +26,13 @@ class Game {
     playerMove(col, row) {
         //which player?
         if (this.round % 2 === 0) {
-            Global.formPage.currPlayer = this.gamePage.formPage.player2;
+            Global.formPage.currPlayer = Global.formPage.player2;
             Global.formPage.currPlayer.moves--;
         } else {
-            Global.formPage.currPlayer = this.gamePage.formPage.player1;
+
+            Global.formPage.currPlayer = Global.formPage.player1;
             Global.formPage.currPlayer.moves--;
         }
-         //lägg in spelarens färg
-         this.gamePage.matrix[row][col].color=Global.formPage.currPlayer.color;
-    
         this.checkSide(row, col);
         if (this.round === 42) { //om brädet är fullt
             $('#modalDraw').modal('show')
@@ -60,7 +58,7 @@ class Game {
         }
 
         //check to left
-        for (let toLeft = col - 1; toLeft >= 0 && this.gamePage.matrix[row][toRight].color === Global.formPage.currPlayer.color && winCounter <= 3; toLeft--) {
+        for (let toLeft = col - 1; toLeft >= 0 && this.gamePage.matrix[row][toLeft].color === Global.formPage.currPlayer.color && winCounter <= 3; toLeft--) {
             winCounter++;
         }
 
