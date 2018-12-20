@@ -108,7 +108,7 @@ class Game {
             this.winner = localStorage.getItem('player-2-name')
         }
         document.getElementById("modal-body").innerHTML = this.winner+' is the winner';
-        this.addHighScore(Math.ceil(this.round / 2));
+        this.addHighScore(22-winner.moves);
 
         $('#modalWinner').modal('show');
            
@@ -121,14 +121,16 @@ class Game {
             }); 
         }
     }//setWinner
-
+    
     async addHighScore(moves) {
-        //Modtager highscore fra spillet som string
+        //recieve highscore from game as a string 
         let highscore = await JSON._load('highscoreArray.json');
-        //Findes noget i highscore parser vi til at være en array, og ellers får vi en tom array
+        //If there is something in highscore, we parse it to be an array
+        // else we give an empty array
         const highscoreArray = highscore ? highscore : [];
-        //Tilføjer object til highscoreArray
+        //Add objects to the highscore 
         highscoreArray.push({ name: this.winner, moves: moves });
+        //Saving the data in our json-file
         await JSON._save('highscoreArray.json', highscoreArray);
     }//async
 } //class
