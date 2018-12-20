@@ -6,7 +6,5 @@ class HighScoreRow extends Component {
         this.no = no;
         this.name = name;
         this.moves = moves;
-    }
-
-
-}
+    }//constructor
+}//class
