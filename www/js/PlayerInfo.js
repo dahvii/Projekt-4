@@ -1,4 +1,0 @@
-class PlayerInfo extends Component {
-
-    
-  } 
