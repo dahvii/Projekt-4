@@ -1,14 +1,15 @@
-body > div {
+body>div {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
-#rules{
+
+#rules {
   font-family: 'Electrolize', sans-serif;
-  font-weight: bold; 
-  text-align: center; 
-  color: white; 
-  font-size: 3em; 
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  font-size: 3em;
   text-shadow: 3px 2px black;
   padding-bottom: 10px;
 }
@@ -21,31 +22,34 @@ body > div {
   display: inline-block;
 }
 
-a{
-  color: black; 
+a {
+  color: black;
   font-family: 'Electrolize', sans-serif;
-  font-weight: 500; 
-  
+  font-weight: 500;
+
 }
-.formHtml{
-  background-color: rgba(197, 196, 196, 0); 
-  margin-left: 0vw; 
-  display:block
+
+.formHtml {
+  background-color: rgba(197, 196, 196, 0);
+  margin-left: 0vw;
+  display: block
 }
-h1{
+
+h1 {
   font-family: 'Electrolize', sans-serif;
-  font-weight: 800; 
-  text-align: center; 
-  color: white; 
-  font-size: 3em; 
+  font-weight: 800;
+  text-align: center;
+  color: white;
+  font-size: 3em;
   text-shadow: 3px 2px black;
 }
-h2{
+
+h2 {
   font-family: 'Electrolize', sans-serif;
-  font-weight: bold; 
-  text-align: center; 
-  color: white; 
-  font-size: 3em; 
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  font-size: 3em;
   text-shadow: 3px 2px black;
   padding-bottom: 2%;
 }
@@ -53,6 +57,7 @@ h2{
 main {
   flex: 1;
 }
+
 .roww {
   display: flex;
   margin-left: 11vw;
@@ -62,41 +67,52 @@ main {
   flex: 33.33%;
   padding: 5px;
 }
+
 .fourInARow {
   width: 80%;
   height: 55vh;
   margin-right: 15vw;
 }
+
 body {
   background-image: url("http://ceilfire.s3-eu-west-1.amazonaws.com/upload_a617670012d85c15e90c32cf4907a5ad");
-  background-size: cover; 
+  background-size: cover;
 }
+
 .overskrift {
   font-weight: bold;
   font-size: 3em;
   font-family: 'Electrolize', sans-serif;
 }
+
 .paragraf {
   font-weight: 800;
   font-size: 3vh;
   font-family: 'Electrolize', sans-serif;
+  padding-right: 1vw;
 }
-.paragraff{
-  font-weight: 700; 
-  font-size: 3vh; 
+
+.paragraff {
+  font-weight: 700;
+  font-size: 3vh;
   font-family: 'Electrolize', sans-serif;
 }
+
 .btn-primary {
   font-family: 'Electrolize', sans-serif;
   background-color: rgba(0, 39, 148, 0.678);
+  margin-right: 45%;
+  margin-left:5px;
 }
+
 div .text {
-  margin-left: 10vw;
-  margin-top: 20vh;
+  margin-top: 5vh;
   font-family: 'Electrolize', sans-serif;
   font-weight: 900;
   font-size: 5vh;
+  text-align: center;
 }
+
 .color {
   font-family: 'Electrolize', sans-serif;
   font-weight: 900;
@@ -125,10 +141,14 @@ div .text {
   color: rgb(0, 146, 0);
 }
 
+.img-fluid {
+  float: left;
+}
+
 /* --- GamePage --- */
 
 
-body > div {
+body>div {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -143,34 +163,32 @@ main {
   border: 2vh solid rgba(30, 100, 240, 1);
   border-radius: 5%;
   box-shadow: 10px 7px 15px grey;
-  
+
 }
 
 
 .coll {
- width: 14.28%;
+  width: 14.28%;
 }
 
-.coll > div {
+.coll>div {
   padding-top: 100%;
-  position:relative;
+  position: relative;
   background-color: rgba(30, 100, 240, 1);
-  
+
 }
 
-.coll > div > div {
-  position:absolute;
-  top:10%;
-  left:10%;
+.coll>div>div {
+  position: absolute;
+  top: 10%;
+  left: 10%;
   width: 80%;
   height: 80%;
   border-radius: 50%;
-  background-image: linear-gradient(
-    to bottom right,
+  background-image: linear-gradient(to bottom right,
     rgb(255, 255, 255),
     rgb(255, 255, 255),
-    rgb(255, 255, 255)
-  );
+    rgb(255, 255, 255));
   box-shadow: inset 45px 45px 10px -50px rgba(0, 0, 0, 0.18);
 }
 
@@ -183,87 +201,88 @@ main {
 }
 
 .coll.red {
-  background-image: linear-gradient(
-    to bottom right,
+  background-image: linear-gradient(to bottom right,
     rgb(255, 0, 0),
     rgb(255, 136, 0),
-    red
-  );
+    red);
   box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
 }
 
 .coll.yellow {
-  background-image: linear-gradient(
-    to bottom right,
+  background-image: linear-gradient(to bottom right,
     orange,
     rgb(255, 255, 140),
-    orange
-    
-  );
-box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
+    orange);
+  box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
 }
 
 .coll.empty {
   cursor: pointer;
 }
 
-#players2{
+#players2 {
   background-color: whitesmoke;
   padding: 0vh 1vw;
   border: 1px solid lightgray;
   border-radius: 10px 10px;
-  flex:1;
+  flex: 1;
   width: 20vw;
   text-align: center;
   color: rgb(226, 226, 8);
   font-size: 3vw;
 }
-#players{
+
+#players {
   background-color: whitesmoke;
   padding: 0vh 1vw;
   border: 1px solid lightgray;
   border-radius: 10px 10px;
-  flex:1;
+  flex: 1;
   width: 20vw;
 
   text-align: center;
   color: rgb(211, 8, 8);
   font-size: 3vw;
 }
-#turn{
+
+#turn {
   font-size: 4vw;
-  flex:3;
+  flex: 3;
   text-align: center;
 }
 
-.name, #drag2, #drag{
+.name,
+#drag2,
+#drag {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 2vh;
   margin-top: 2vh;
 }
 
-#modal-body{
-  padding:16px;
+#modal-body {
+  padding: 16px;
 }
-.activePlayer{
+
+.activePlayer {
   border: 2px solid black !important;
   box-shadow: 8px 7px 65px rgb(43, 43, 43);
 
 }
 
-.jumbotronContainer{
-  display:flex;
+.jumbotronContainer {
+  display: flex;
 }
 
-.jumbotron{
+.jumbotron {
   padding: 5px;
 }
-.img-fluid{
-  float: right; 
+
+.img-fluid {
+  float: right;
 }
 
-.flex-d{
+.flex-d {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -271,12 +290,24 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
 
 /* --- end --- */
 
+@media (max-width: 1000px) {
+  .picz {
+    display: none;
+  }
+  .btn-primary{
+    margin-top:0;
+  }
+}
+
+
+
 @media (max-width: 667px) {
-  #secondjumbo{
-    display: none; 
+
+  #secondjumbo {
+    display: none;
   }
 
-  .navbar-img{
+  .navbar-img {
     height: 17vh;
     width: 10vw;
   }
@@ -301,23 +332,24 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
     margin-bottom: 1vh;
     text-align: center;
   }
-  .text{
-    font-size: 3vh; 
+
+  .text {
+    font-size: 3vh;
     font-family: 'Electrolize', sans-serif;
     font-weight: 700;
     margin: 0;
-    
-
   }
-  .overskrift{
-    font-size: 3em; 
+
+  .overskrift {
+    font-size: 3em;
     font-family: 'Electrolize', sans-serif;
     font-weight: 700;
   }
-  .paragraf{
-    font-size: 3vh; 
+
+  .paragraf {
+    font-size: 3vh;
     font-family: 'Electrolize', sans-serif;
-    font-weight: 700; 
+    font-weight: 700;
   }
 
 }
