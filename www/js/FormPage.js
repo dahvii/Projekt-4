@@ -16,32 +16,20 @@ class FormPage extends Component {
 
 
   addPlayer() {
-    console.log('addPlayer');
-
-
     if($('#typ-1').val() === 'bot'){
-      this.player1= new Bot($('#name-input1').val(), 'red', 1, 21);
-      console.log('skapar bot');
-      
+      this.player1= new Bot($('#name-input1').val(), 'red', 1, 21);      
     }
     else{
       this.player1= new Player($('#name-input1').val(), 'red', 1, 21);
-      console.log('skapar human');
-
     }
 
     if($('#typ-2').val() === 'bot'){
       this.player2= new Bot($('#name-input2').val(), 'yellow', 2, 21);
-      console.log('skapar bot');
-
     }
     else{
       this.player2= new Player($('#name-input2').val(), 'yellow', 2, 21);
-      console.log('skapar human');
-
     }
     this.currPlayer = this.player1;
-    console.log(this.currPlayer, "from formpage")
 
     $('#invalid-input1').hide();
     $('#invalid-input2').hide();

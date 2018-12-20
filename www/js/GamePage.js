@@ -16,9 +16,7 @@ class GamePage extends Component {
       'click .btn-outline-dark': 'rematch',
     });
     this.buildMatrix();
-    //this.bot();
-    console.log('GamePagekonstruktor');
-    
+    //this.bot();    
   }//constructor
 
 
@@ -36,7 +34,7 @@ class GamePage extends Component {
         rowArr.push(new Slot(this, row, col));
       }
       this.matrix.push(rowArr);
-    }
+    }    
 
     /* nedan endast för enklare avläsning i inspektion
     this.matrixOfColor = [];
@@ -70,22 +68,23 @@ class GamePage extends Component {
 
     let col=currSlot.col;
     let row = this.game.findEmptyCell(col);
+    if (row !== undefined){
+      //gör draget
+      this.placeColor(row, col); 
+      this.game.playerMove(row, col); 
 
-    //gör draget
-    this.placeColor(row, col); 
-    this.game.playerMove(row, col); 
+      //ändra aktuell spelare inför nästa drag
+      if (this.game.round % 2 === 0) {
+        Global.formPage.currPlayer = Global.formPage.player2;
+        Global.formPage.currPlayer.moves--;
+      } else {
 
-    //which player
-    if (this.game.round % 2 === 0) {
-      Global.formPage.currPlayer = Global.formPage.player2;
-      Global.formPage.currPlayer.moves--;
-    } else {
-
-      Global.formPage.currPlayer = Global.formPage.player1;
-      Global.formPage.currPlayer.moves--;
-    }
-    //kolla om nästa spelare är en bot och låt den isåfall gör ett drag
-      this.bot(); 
+        Global.formPage.currPlayer = Global.formPage.player1;
+        Global.formPage.currPlayer.moves--;
+      }
+      //kolla om nästa spelare är en bot och låt den isåfall gör ett drag
+        this.bot(); 
+    }//if
     
   }//placeDisc
   
@@ -103,15 +102,12 @@ class GamePage extends Component {
       //this.matrixOfColor[col][row]='yellow';
     }
     this.render(); 
-    console.log('jag är här')   
   }//placeColor
 
   //kollar om "type" är bot och gör isåfall ett drag
-  bot(){
-    console.log('i bot() och currPlayer är ', this.formPage.currPlayer);
-    
+  bot(){    
     if (this.formPage.currPlayer instanceof Bot){
-      console.log('går in i bot() if');      
+//      console.log('går in i bot() if');      
       let millisecondsToWait = 500;
       let emptyCell, rand;
       setTimeout(() => {
