@@ -110,7 +110,9 @@ class Game {
 
         //visa vinnarsidan och lägg till highscore
         document.getElementById("modal-body").innerHTML = this.winner+' is the winner';
-        this.addHighScore(22-winner.moves);
+        if (!(Global.formPage.currPlayer instanceof Bot)) {
+            this.addHighScore(22-winner.moves);
+        }
 
         $('#modalWinner').modal('show');
         
