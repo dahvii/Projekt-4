@@ -134,8 +134,10 @@ class GamePage extends Component {
     this.clearBoard();
     // rerender the whole pageContent component
     // to show the new gamePage instance
-    this.buildMatrix();
     Global.router.mainInstance.render();
+    this.formPage.player1.moves = 21; 
+    this.formPage.player2.moves = 21;
+    Global.formPage.currPlayer = this.formPage.player1;
   }
       
   clearBoard(){
