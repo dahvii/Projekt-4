@@ -277,12 +277,11 @@ box-shadow: inset 4px 4px 1px rgba(0, 0, 0, 0.18);
   .navbar-img{
     height: 17vh;
     width: 10vw;
-
   }
 
-  .players{
-    margin-right: 17vw;
-    margin-top: 80vh;
+  #players, #players2{
+    font-size: 20px;
+   
   }
 
   .paragraff{
