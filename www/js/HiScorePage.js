@@ -1,10 +1,9 @@
 class HiScorePage extends Component {
-
   constructor() {
     super();
     this.addRoute('/hiScore', 'HiScore', this);
     this.isLoaded = false;
-  }
+  }//constructor
 
   //mount --> Creating components in the dom 
    async mount() {

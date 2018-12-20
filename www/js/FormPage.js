@@ -1,5 +1,4 @@
 class FormPage extends Component {
-
   constructor() {
     super();
     this.addRoute('/gameForm', 'Game Form');
@@ -12,10 +11,10 @@ class FormPage extends Component {
       'keydown #name-input2': 'pressSpace'
     });
     Global.formPage = this;
-  }
-
+  }//constructor
 
   addPlayer() {
+    //kolla om spelaren är en bot eller inte och skapa instanserna av detta
     if($('#typ-1').val() === 'bot'){
       this.player1= new Bot($('#name-input1').val(), 'red', 1, 21);      
     }
@@ -29,8 +28,11 @@ class FormPage extends Component {
     else{
       this.player2= new Player($('#name-input2').val(), 'yellow', 2, 21);
     }
+
+    //currPlayer är player1 eftersom player1 börjar
     this.currPlayer = this.player1;
 
+    //validera inputen från användaren
     $('#invalid-input1').hide();
     $('#invalid-input2').hide();
     let success = true;
@@ -49,33 +51,34 @@ class FormPage extends Component {
       success = false;
     }
     if(success){
-    if (this.player1.name === this.player2.name) {
-      $('#invalid-input1').show();
-      $('#invalid-input2').show();
-    }    
-    else {
-      Global.gamePage.bot();
-      history.pushState(null, null, '/game')
-      Global.router.setPath('/game');
-      Global.router.mainInstance.render();
+      if (this.player1.name === this.player2.name) {
+        $('#invalid-input1').show();
+        $('#invalid-input2').show();
+      }    
+      //skicka användaren vidare till spelsidan
+      else {
+        Global.gamePage.bot();
+        history.pushState(null, null, '/game')
+        Global.router.setPath('/game');
+        Global.router.mainInstance.render();
+      }
     }
-  }
-}
+  }//addPlayer
 
   validate(name) {
     return name.length >= 2 && name.length <= 10;
-  }
+  }//validate
 
   pressEnter(e) {
     if (e.which === 13) {
       this.addPlayer();
     }
-  }
+  }//pressEnter
 
   pressSpace(e) {
     if (e.which === 32){
       e.preventDefault()
     }
-  }
-}
+  }//pressSpace
+}//class
 

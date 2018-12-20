@@ -1,5 +1,4 @@
 class Slot extends Component {
- 
     constructor(gamePage, row, col){
       super();
       this.gamePage = gamePage;
@@ -9,9 +8,9 @@ class Slot extends Component {
       this.addEvents({
         'click .coll': 'click'
       });
-    }
+    }//constructor
 
     click(){
         this.gamePage.placeDisc(this);
-    }
-}
+    }//click
+}//class

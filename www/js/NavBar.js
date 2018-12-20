@@ -1,5 +1,4 @@
 class NavBar extends Component {
-
   constructor() {
     super();
     this.navItems = [
@@ -7,14 +6,13 @@ class NavBar extends Component {
       new NavItem('Game','/game'),
       new NavItem('Game Rules', '/gameRules'),
       new NavItem('HiScore', '/hiScore'),
-      //new NavItem('Game dirr ', '/game'),
-
     ];
-  }
+  }//constructor
+
   replaceLink(name, link) {
     this.navItems[1] = new NavItem(name, link)
     this.render(); 
-  }
+  }//replaceLink
 
   itemClicked(item) {
     const { mainInstance } = Global.router;
@@ -23,5 +21,5 @@ class NavBar extends Component {
       mainInstance.gamePage.clearBoard();
       Global.activeGame = false;
     }
-  }
-}
+  }//itemClicked
+}//class
