@@ -5,7 +5,7 @@ class GamePage extends Component {
     Global.gamePage = this;
     this.formPage = Global.formPage;
     this.game = new Game(this);
-    this.player='red'
+    this.player = 'red'
     this.movesLeft = 21;
     this.movesLeft2 = 21;
     this.addEvents({
@@ -16,11 +16,11 @@ class GamePage extends Component {
     this.buildMatrix();
   }//constructor
 
-  buildMatrix(){
+  buildMatrix() {
     this.matrix = [];
-    for(let row = 0; row < 6; row++){
+    for (let row = 0; row < 6; row++) {
       let rowArr = [];
-      for(let col = 0; col < 7; col++){
+      for (let col = 0; col < 7; col++) {
         rowArr.push(new Slot(this, row, col));
       }
       this.matrix.push(rowArr);
@@ -35,16 +35,16 @@ class GamePage extends Component {
     Global.router.mainInstance.render();
   }
 
-  placeDisc(currSlot){
-    Global.activeGame=true; 
+  placeDisc(currSlot) {
+    Global.activeGame = true;
 
-    let col=currSlot.col;
+    let col = currSlot.col;
     let row = this.game.findEmptyCell(col);
 
     //om det finns en tom plats i kolumnen, gör draget
-    if (row !== undefined){
-      this.placeColor(row, col); 
-      this.game.playerMove(row, col); 
+    if (row !== undefined) {
+      this.placeColor(row, col);
+      this.game.playerMove(row, col);
 
       //ändra aktuell spelare inför nästa drag
       if (this.game.round % 2 === 0) {
@@ -56,56 +56,79 @@ class GamePage extends Component {
         Global.formPage.currPlayer.moves--;
       }
       //kolla om nästa spelare är en bot och låt den isåfall gör ett drag
-        this.bot(); 
+      this.bot();
     }//if 
   }//placeDisc
-  
-  placeColor(col, row){
+
+  placeColor(col, row) {
     //add currPlayers color
     if (this.formPage.currPlayer.color === 'red') {
-      this.matrix[col][row].color='red';
-      this.player='yellow'
+      this.matrix[col][row].color = 'red';
+      this.player = 'yellow'
       this.movesLeft--;
     } else {
-      this.matrix[col][row].color='yellow';
-      this.player='red'
+      this.matrix[col][row].color = 'yellow';
+      this.player = 'red'
       this.movesLeft2--;
     }//if
-    this.render(); 
+    this.render();
   }//placeColor
 
-  bot(){    
+  bot() {
     //kollar om currPlayer är bot
-    if (this.formPage.currPlayer instanceof Bot){
+    if (this.formPage.currPlayer instanceof Bot) {
       let millisecondsToWait = 500;
       let emptyCell, rand;
       setTimeout(() => {
         //hitta random kolumn och hitta dens lägsta tomma cell
         //om kolumnen är full, loopa och hitta en ny kolumn
-        while(emptyCell === undefined && this.game.winner == undefined && this.game.round <= 42){
-          rand = (Math.floor(Math.random() * 7));            
-          emptyCell=this.game.findEmptyCell(rand);
-        }  
+        while (emptyCell === undefined && this.game.winner == undefined && this.game.round <= 42) {
+          rand = (Math.floor(Math.random() * 7));
+          emptyCell = this.game.findEmptyCell(rand);
+        }
         //gör draget          
-        if(emptyCell !== undefined && this.game.winner == undefined ){
+        if (emptyCell !== undefined && this.game.winner == undefined) {
           this.placeDisc(this.matrix[emptyCell][rand]);
-        }  
+        }
       }, millisecondsToWait);
     }//if
   }//bot
-   
+
+  placeNext(currSlot) {
+    let col = currSlot.col;
+    let row = this.game.findEmptyCell(col);
+
+    if (this.formPage.currPlayer.color === 'red' && row !== undefined) {
+      this.matrix[row][col].color = 'nextred';
+    } else if (this.formPage.currPlayer.color === 'yellow' && row !== undefined) {
+      this.matrix[row][col].color = 'nextyellow';
+    }
+    this.render();
+  }
+  // Clears whole board to avoid lingering next-colors
+  removeNext() {
+    for (let j = 0; j < 7; j++) {
+      for (let i = 0; i < 6; i++) {
+        if (this.matrix[i][j].color === 'nextred' || this.matrix[i][j].color === 'nextyellow') {
+          this.matrix[i][j].color = 'empty'
+          this.render();
+        }
+      }
+    }
+  }
+
 
   rematch() {
     this.clearBoard();
     // rerender the whole pageContent component
     // to show the new gamePage instance
     Global.router.mainInstance.render();
-    this.formPage.player1.moves = 21; 
+    this.formPage.player1.moves = 21;
     this.formPage.player2.moves = 21;
     Global.formPage.currPlayer = this.formPage.player1;
   }//rematch
-      
-  clearBoard(){
+
+  clearBoard() {
     // remove old GamePage instance
     // (mostly to not waste memory)
     const pageContent = Global.router.mainInstance;
