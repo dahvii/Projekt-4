@@ -28,5 +28,6 @@ class Slot extends Component {
   click() {
     this.gamePage.removeNext();
     this.gamePage.placeDisc(this);
+    this.gamePage.placeNext(this);
   }//click
 }//class
