@@ -1,15 +1,15 @@
 class HiScorePage extends Component {
-
   constructor() {
     super();
     this.addRoute('/hiScore', 'HiScore', this);
     this.isLoaded = false;
-  }
+  }//constructor
 
   //mount --> Creating components in the dom 
    async mount() {
      // isLoaded is to prevent continusely rerendering the page (every render() invokes mount())
     if (!this.isLoaded) {
+      //Get 
       let highscore = await JSON._load('highscoreArray.json');
       this.highscoreArray = highscore ? highscore : [];
       // Sorting highscore depending on moves 
@@ -21,7 +21,7 @@ class HiScorePage extends Component {
       this.setLoaded(true);
     }
   }
-
+//This function is created to prevent the highscore page redering all the time 
   setLoaded(loaded) {
     this.isLoaded = loaded;
   }

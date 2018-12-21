@@ -8,23 +8,13 @@ class GamePage extends Component {
     this.player='red'
     this.movesLeft = 21;
     this.movesLeft2 = 21;
-
-    //Global.activeGame=true;        
     this.addEvents({
       'click #highscoreButton': 'highScore',
       'click #rematch': 'rematch',
       'click .btn-outline-dark': 'rematch',
     });
     this.buildMatrix();
-    //this.bot();    
   }//constructor
-
-
-  // TODO: Generate HTML with array
-  // Make it more responsive (mobile looka too small. Should be easy)
-  // Animation
-  // Mouse over animation/shadow (don't know why it doesn't work)
-  // remove white showing next to cell/token
 
   buildMatrix(){
     this.matrix = [];
@@ -34,42 +24,25 @@ class GamePage extends Component {
         rowArr.push(new Slot(this, row, col));
       }
       this.matrix.push(rowArr);
-    }    
-
-    /* nedan endast för enklare avläsning i inspektion
-    this.matrixOfColor = [];
-    for(let row = 0; row < 6; row++){
-      let rowArr = [];
-      for(let col = 0; col < 7; col++){
-        rowArr.push('empty');
-      }
-      this.matrixOfColor.push(rowArr);
-    }*/
+    }//for   
   }//buildMatrix
 
   highScore() {
-      this.clearBoard();
-      $('#modalWinner').modal('hide');
-      history.pushState(null, null, '/hiScore');
-      Global.router.setPath('/hiScore');
-      Global.router.mainInstance.render();
+    this.clearBoard();
+    $('#modalWinner').modal('hide');
+    history.pushState(null, null, '/hiScore');
+    Global.router.setPath('/hiScore');
+    Global.router.mainInstance.render();
   }
 
   placeDisc(currSlot){
     Global.activeGame=true; 
-    this.board = [];
-    for(let row = 0; row < 10; row++){
-      let rowArr = [];
-      for(let col = 0; col < 11; col++){
-        rowArr.push('empty');
-      }
-      this.board.push(rowArr);
-    }
 
     let col=currSlot.col;
     let row = this.game.findEmptyCell(col);
+
+    //om det finns en tom plats i kolumnen, gör draget
     if (row !== undefined){
-      //gör draget
       this.placeColor(row, col); 
       this.game.playerMove(row, col); 
 
@@ -84,45 +57,41 @@ class GamePage extends Component {
       }
       //kolla om nästa spelare är en bot och låt den isåfall gör ett drag
         this.bot(); 
-    }//if
-    
+    }//if 
   }//placeDisc
   
   placeColor(col, row){
-    // remove empty and add player color
+    //add currPlayers color
     if (this.formPage.currPlayer.color === 'red') {
       this.matrix[col][row].color='red';
       this.player='yellow'
       this.movesLeft--;
-      //this.matrixOfColor[col][row]='red';
     } else {
       this.matrix[col][row].color='yellow';
       this.player='red'
       this.movesLeft2--;
-      //this.matrixOfColor[col][row]='yellow';
-    }
+    }//if
     this.render(); 
   }//placeColor
 
-  //kollar om "type" är bot och gör isåfall ett drag
   bot(){    
+    //kollar om currPlayer är bot
     if (this.formPage.currPlayer instanceof Bot){
-//      console.log('går in i bot() if');      
       let millisecondsToWait = 500;
       let emptyCell, rand;
       setTimeout(() => {
+        //hitta random kolumn och hitta dens lägsta tomma cell
+        //om kolumnen är full, loopa och hitta en ny kolumn
         while(emptyCell === undefined && this.game.winner == undefined && this.game.round <= 42){
           rand = (Math.floor(Math.random() * 7));            
           emptyCell=this.game.findEmptyCell(rand);
-        }            
+        }  
+        //gör draget          
         if(emptyCell !== undefined && this.game.winner == undefined ){
           this.placeDisc(this.matrix[emptyCell][rand]);
-          //this.placeColor(rand, emptyCell);
-          //this.game.playerMove(rand, emptyCell);
-        }
-        
+        }  
       }, millisecondsToWait);
-    }
+    }//if
   }//bot
    
 
@@ -134,7 +103,7 @@ class GamePage extends Component {
     this.formPage.player1.moves = 21; 
     this.formPage.player2.moves = 21;
     Global.formPage.currPlayer = this.formPage.player1;
-  }
+  }//rematch
       
   clearBoard(){
     // remove old GamePage instance
@@ -143,5 +112,5 @@ class GamePage extends Component {
     delete pageContent.gamePage;
     // add a new instance (with clean new property values)
     pageContent.gamePage = new GamePage();
-  }
-}
+  }//clearBoard
+}//class
